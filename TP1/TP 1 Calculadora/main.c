@@ -7,10 +7,12 @@ int main()
     float numero1;
     float numero2;
     float resultado;
+    float resultado2;
     int reint=10;
     int error=0;
     char opcion;
-    char salir='n';
+    char salir;
+    char* respuesta;
     //int opcion;
     do
     {
@@ -31,30 +33,39 @@ int main()
                 {
                     case 'a':
                         utn_suma(&resultado,numero1,numero2);
+                        respuesta="El resultado de la suma %.2f+%.2f es:  %.2f\n\n ";
                         break;
                     case 'b':
                         utn_resta(&resultado,numero1,numero2);
+                        respuesta="El resultado de la resta %.2f-%.2f es:  %.2f\n\n ";
                         break;
                     case 'c':
                         utn_multiplicacion(&resultado,numero1,numero2);
+                        respuesta="El resultado de la multiplicacion %.2f*%.2f es:  %.2f\n\n ";
                         break;
                     case 'd':
                         if(utn_division(&resultado,numero1,numero2,"No se puede dividir por 0")==-1)
                         {
                             error=1;
                         };
+                        respuesta="El resultado de la division %.2f/%.2f es:  %.2f\n\n ";
+                        break;
+                    case 'f':
+                        resultado=utn_factoreo(numero1);
+                        resultado2=utn_factoreo(numero2);
+                        respuesta="El resultado de la factorizacion de %.2f y de %.2f es: %.2f y %.2f\n\n ";
                 }
 
             }
         if(error == 0)
         {
-            printf("\nEl Resultado es: %.2f\n\n",resultado);
+            printf(respuesta,numero1,numero2,resultado,resultado2);
         }
-        printf("¿Desea realizar otra operacion?");
+        printf("¿Desea realizar otra operacion? S para seguir, N para no. \n\n");
         scanf("%c",&salir);
 
 
-    }while(salir == 'n');
+    }while(salir == 'N');
 
 return 0;
 

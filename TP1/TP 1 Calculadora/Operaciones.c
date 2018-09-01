@@ -62,6 +62,29 @@ int utn_getEntero(int* pNum,int reint,char* msg,char* msgError,int maximo,int mi
     return retorno;
 }
 
+int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
+{
+    char opcion;
+    int retorno=-1;
+
+
+    for(;reint > 0;reint--)
+    {
+        printf(msg);
+        scanf("%s",&opcion);
+        if(opcion=='a' || opcion=='b'||opcion=='c'|| opcion=='d' || opcion=='f')
+        {
+            *pOpcion = opcion;
+            retorno = 0;
+            break;
+        }else
+        {
+            printf(msgError);
+        }
+    }
+    return retorno;
+}
+
 int utn_suma(float *pResultado,float numero1,float numero2)
 {
 
@@ -100,30 +123,18 @@ int utn_division(float *pResultado,float numero1, float numero2,char* msgError)
     return retorno;
 }
 
-int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
+int utn_factoreo(float numero)
 {
-    char opcion;
-    int retorno=-1;
-
-
-    for(;reint > 0;reint--)
+    float respuesta;
+    if(numero==1 || numero ==0)
     {
-        printf(msg);
-        scanf("%s",&opcion);
-        if(opcion=='a' || opcion=='b'||opcion=='c'|| opcion=='d' || opcion=='f')
-        {
-            *pOpcion = opcion;
-            retorno = 0;
-            break;
-        }else
-        {
-            printf(msgError);
-        }
+        respuesta = 1;
+    }else
+    {
+        respuesta=numero*utn_factoreo(numero-1);
     }
-    return retorno;
+    return respuesta;
 }
-
-
 
 static int getFloat(float* pResultado)
 {
