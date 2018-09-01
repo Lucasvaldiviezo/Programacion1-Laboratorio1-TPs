@@ -86,7 +86,21 @@ int utn_multiplicacion(float *pResultado,float numero1, float numero2)
     return 0;
 }
 
-/*int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
+int utn_division(float *pResultado,float numero1, float numero2,char* msgError)
+{
+    int retorno = 0;
+    if(numero2==0)
+    {
+        printf(msgError);
+        retorno = -1;
+    }else
+    {
+        *pResultado=numero1/numero2;
+    }
+    return retorno;
+}
+
+int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
 {
     char opcion;
     int retorno=-1;
@@ -96,7 +110,7 @@ int utn_multiplicacion(float *pResultado,float numero1, float numero2)
     {
         printf(msg);
         scanf("%s",&opcion);
-        if(opcion=="sumar" || opcion=="restar"||opcion=="dividir"|| opcion=="multiplicar" || opcion=="factorizar")
+        if(opcion=='a' || opcion=='b'||opcion=='c'|| opcion=='d' || opcion=='f')
         {
             *pOpcion = opcion;
             retorno = 0;
@@ -108,7 +122,7 @@ int utn_multiplicacion(float *pResultado,float numero1, float numero2)
     }
     return retorno;
 }
-*/
+
 
 
 static int getFloat(float* pResultado)

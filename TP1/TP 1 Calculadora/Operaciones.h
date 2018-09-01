@@ -18,5 +18,5 @@ int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint);
 int utn_suma(float *pResultado,float numero1, float numero2);
 int utn_resta(float *pResultado,float numero1, float numero2);
 int utn_multiplicacion(float *pResultado,float numero1, float numero2);
-int utn_suma(float *pResultado,float numero1, float numero2);
+int utn_division(float *pResultado,float numero1, float numero2,char* msgError);
 #endif // OPERACIONES_H_INCLUDED

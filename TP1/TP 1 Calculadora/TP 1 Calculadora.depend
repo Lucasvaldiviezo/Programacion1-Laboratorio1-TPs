@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1535775155 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\main.c
+1535778995 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Operaciones.h"
 
-1535775466 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\operaciones.h
+1535778998 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\operaciones.h
 
-1535775503 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\operaciones.c
+1535779077 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\operaciones.c
 	<stdio.h>
 	<stdlib.h>
 	"Operaciones.h"
