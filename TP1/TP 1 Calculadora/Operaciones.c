@@ -39,7 +39,7 @@ int utn_getEntero(int* pNum,int reint,char* msg,char* msgError,int maximo,int mi
         printf(msg);
         if(getInt(&auxiliarNum) == 0)
         {
-            if(auxiliarNum > 0 && auxiliarNum < 6)
+            if(auxiliarNum > minimo && auxiliarNum < maximo)
             {
                 *pNum = auxiliarNum;
                 retorno = 0;
@@ -72,7 +72,7 @@ int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
     {
         printf(msg);
         scanf("%s",&opcion);
-        if(opcion=='a' || opcion=='b'||opcion=='c'|| opcion=='d' || opcion=='f')
+        if(opcion=='a' || opcion=='b'||opcion=='c'|| opcion=='d' || opcion=='e')
         {
             *pOpcion = opcion;
             retorno = 0;

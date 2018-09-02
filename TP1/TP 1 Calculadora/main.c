@@ -11,9 +11,8 @@ int main()
     int reint=10;
     int error=0;
     char opcion;
-    char salir;
+    int salir;
     char* respuesta;
-    //int opcion;
     do
     {
 
@@ -26,46 +25,60 @@ int main()
             }
         }
         if(utn_getCaracter(&opcion,
-            "||Operaciones||\n   A.Sumar\n   B.Restar\n   C.Multiplicar\n   D.Dividir\n   F.Factorizar\nEscriba la letra de la operacion que desea realizar: ",
+            "||Operaciones||\n   A.Sumar\n   B.Restar\n   C.Multiplicar\n   D.Dividir\n   E.Factorizar\nEscriba la letra de la operacion que desea realizar: ",
             "Esa no es una opcion valida\n",reint) == 0)
             {
                 switch(opcion)
                 {
                     case 'a':
                         utn_suma(&resultado,numero1,numero2);
-                        respuesta="El resultado de la suma %.2f+%.2f es:  %.2f\n\n ";
+                        respuesta="El resultado de la suma %.2f+%.2f es:  %.2f\n\n";
                         break;
                     case 'b':
                         utn_resta(&resultado,numero1,numero2);
-                        respuesta="El resultado de la resta %.2f-%.2f es:  %.2f\n\n ";
+                        respuesta="El resultado de la resta %.2f-%.2f es:  %.2f\n\n";
                         break;
                     case 'c':
                         utn_multiplicacion(&resultado,numero1,numero2);
-                        respuesta="El resultado de la multiplicacion %.2f*%.2f es:  %.2f\n\n ";
+                        respuesta="El resultado de la multiplicacion %.2f*%.2f es:  %.2f\n\n";
                         break;
                     case 'd':
                         if(utn_division(&resultado,numero1,numero2,"No se puede dividir por 0")==-1)
                         {
                             error=1;
                         };
-                        respuesta="El resultado de la division %.2f/%.2f es:  %.2f\n\n ";
+                        respuesta="El resultado de la division %.2f/%.2f es:  %.2f\n\n";
                         break;
-                    case 'f':
+                    case 'e':
                         resultado=utn_factoreo(numero1);
                         resultado2=utn_factoreo(numero2);
-                        respuesta="El resultado de la factorizacion de %.2f y de %.2f es: %.2f y %.2f\n\n ";
+                        respuesta="El resultado de la factorizacion de %.2f y de %.2f es: %.2f y %.2f\n\n";
+
                 }
 
             }
         if(error == 0)
         {
             printf(respuesta,numero1,numero2,resultado,resultado2);
+
         }
-        printf("¿Desea realizar otra operacion? S para seguir, N para no. \n\n");
-        scanf("%c",&salir);
+
+        if(utn_getEntero(&salir,reint,"¿Desea realizar otra operacion? 1.Si/2.No: ","\nEsa no es una opcion valida\n",3,0)==0)
+        {
+            if(salir == 1)
+            {
+                system("cls");
+            }else
+            {
+                printf("\nHasta la proxima\n");
+            }
 
 
-    }while(salir == 'N');
+        }
+
+
+
+    }while(salir==1);
 
 return 0;
 
