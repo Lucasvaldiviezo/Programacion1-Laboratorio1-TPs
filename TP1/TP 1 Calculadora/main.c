@@ -4,81 +4,90 @@
 
 int main()
 {
-    float numero1;
-    float numero2;
-    float resultado;
-    float resultado2;
+    float numero1=0;
+    float numero2=0;
+    float resultadosuma=0;
+    float resultadoresta=0;
+    float resultadomultiplicacion=0;
+    float resultadodivision=0;
+    int resultadofactoreo1=0;
+    int resultadofactoreo2=0;
     int reint=10;
     int error=0;
-    char opcion;
-    int salir;
+    int opcion;
     char* respuesta;
+    int salir=1;
     do
     {
 
+                system("cls");
+                fflush(stdin);
+                opcion=utn_menu(numero1,numero2);
 
-        if(utn_getNumeroDecimal(&numero1,reint,"Ingrese Numero 1: ","Eso no es un numero\n")==0)
-        {
-            if(utn_getNumeroDecimal(&numero2,reint,"Ingrese Numero 2: ","Eso no es un numero\n")==0)
-            {
-                printf("Los numeros son %.2f-%.2f\n",numero1,numero2);
-            }
-        }
-        if(utn_getCaracter(&opcion,
-            "||Operaciones||\n   A.Sumar\n   B.Restar\n   C.Multiplicar\n   D.Dividir\n   E.Factorizar\nEscriba la letra de la operacion que desea realizar: ",
-            "Esa no es una opcion valida\n",reint) == 0)
-            {
                 switch(opcion)
                 {
-                    case 'a':
-                        utn_suma(&resultado,numero1,numero2);
-                        respuesta="El resultado de la suma %.2f+%.2f es:  %.2f\n\n";
+                    case 1:
+                        system("cls");
+                        utn_getNumeroDecimal(&numero1,reint,"Ingrese Numero 1: ","Eso no es un numero\n");
+                        fflush(stdin);
                         break;
-                    case 'b':
-                        utn_resta(&resultado,numero1,numero2);
-                        respuesta="El resultado de la resta %.2f-%.2f es:  %.2f\n\n";
+                    case 2:
+                        system("cls");
+                        utn_getNumeroDecimal(&numero2,reint,"Ingrese Numero 2: ","Eso no es un numero\n");
+                        fflush(stdin);
                         break;
-                    case 'c':
-                        utn_multiplicacion(&resultado,numero1,numero2);
-                        respuesta="El resultado de la multiplicacion %.2f*%.2f es:  %.2f\n\n";
-                        break;
-                    case 'd':
-                        if(utn_division(&resultado,numero1,numero2,"No se puede dividir por 0")==-1)
+                    case 3:
+                        utn_suma(&resultadosuma,numero1,numero2);
+                        utn_resta(&resultadoresta,numero1,numero2);
+                        utn_multiplicacion(&resultadomultiplicacion,numero1,numero2);
+                        resultadofactoreo1=utn_factoreo(numero1);
+                        resultadofactoreo2=utn_factoreo(numero2);
+                        if(resultadofactoreo1==-1 || resultadofactoreo2==-1 )
                         {
-                            error=1;
-                        };
-                        respuesta="El resultado de la division %.2f/%.2f es:  %.2f\n\n";
+                            error=2;
+                        }
+
+                        if(utn_division(&resultadodivision,numero1,numero2)==-1)
+                        {
+                            if(error==2)
+                            {
+                                error=3;
+                            }else
+                            {
+                                error=1;
+                            }
+
+                        }
+
                         break;
-                    case 'e':
-                        resultado=utn_factoreo(numero1);
-                        resultado2=utn_factoreo(numero2);
-                        respuesta="El resultado de la factorizacion de %.2f y de %.2f es: %.2f y %.2f\n\n";
+                    case 4:
+                        if(error==0)
+                        {
+                            respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)El resultado de A/B es:%.2f\n4)El resultado de A*B es: %.2f\n5)El factorial de A es: %d y El factorial de B es: %d\n";
+                        }else if(error==1)
+                        {
+                          respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)No podes dividir por 0\n4)El resultado de A*B es: %.2f\n5)El factorial de A es: %d y El factorial de B es: %d\n";
+                        }else if(error==2)
+                        {
+                           respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)El resultado de A/B es:%.2f\n4)El resultado de A*B es: %.2f\n5)Un numero negativo no puede ser factorizado\n";
+                        }else if(error==3)
+                        {
+                            respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)No podes dividir por 0\n4)El resultado de A*B es: %.2f\n5)Un numero negativo no puede ser factorizado\n";
+                        }
+                        printf(respuesta,resultadosuma,resultadoresta,resultadodivision,resultadomultiplicacion,resultadofactoreo1,resultadofactoreo2);
+
+                        system("pause");
+                        break;
+                    case 5:
+                        salir=0;
+
 
                 }
 
-            }
-        if(error == 0)
-        {
-            printf(respuesta,numero1,numero2,resultado,resultado2);
-
-        }
-
-        if(utn_getEntero(&salir,reint,"¿Desea realizar otra operacion? 1.Si/2.No: ","\nEsa no es una opcion valida\n",3,0)==0)
-        {
-            if(salir == 1)
-            {
-                system("cls");
-            }else
-            {
-                printf("\nHasta la proxima\n");
-            }
-
-
-        }
 
 
 
-    }while(salir==1);
+}while(salir==1);
 
 return 0;
 

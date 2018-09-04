@@ -6,7 +6,21 @@
 static int getFloat(float* pResultado);
 static int getInt(int* pResultado);
 
+int utn_menu(float numero1,float numero2)
+{
+    int opcion;
 
+    printf("1. Ingresar primer numero (A: %.2f)\n",numero1);
+    printf("2. Ingresar segundo numero (B: %.2f)\n",numero2);
+    printf("3. Calcular todas las operaciones\n");
+    printf("4. Informar resultados\n");
+    printf("5. Salir\n");
+    fflush(stdin);
+    utn_getEntero(&opcion,10,"Seleccione una opcion: ","Esa opcion no es valida \n",6,0);
+
+
+    return opcion;
+}
 int utn_getNumeroDecimal(float *pNum, int reint, char* msg, char* msgError)
 {
     float auxiliarNum;
@@ -109,12 +123,11 @@ int utn_multiplicacion(float *pResultado,float numero1, float numero2)
     return 0;
 }
 
-int utn_division(float *pResultado,float numero1, float numero2,char* msgError)
+int utn_division(float *pResultado,float numero1, float numero2)
 {
     int retorno = 0;
     if(numero2==0)
     {
-        printf(msgError);
         retorno = -1;
     }else
     {
@@ -125,13 +138,22 @@ int utn_division(float *pResultado,float numero1, float numero2,char* msgError)
 
 int utn_factoreo(float numero)
 {
-    float respuesta;
+    int i;
+    float respuesta=1;
+
     if(numero==1 || numero ==0)
     {
         respuesta = 1;
+    }else if(numero < 0)
+    {
+        respuesta = -1;
     }else
     {
-        respuesta=numero*utn_factoreo(numero-1);
+         for (i = 1; i <= (int)numero; i++)
+         {
+            respuesta =respuesta * i;
+         }
+
     }
     return respuesta;
 }
