@@ -10,12 +10,11 @@ int main()
     float resultadoresta=0;
     float resultadomultiplicacion=0;
     float resultadodivision=0;
-    int resultadofactoreo1=0;
-    int resultadofactoreo2=0;
+    float resultadofactoreo1=0;
+    float resultadofactoreo2=0;
     int reint=10;
     int error=0;
     int opcion;
-    char* respuesta;
     int salir=1;
     do
     {
@@ -61,20 +60,31 @@ int main()
 
                         break;
                     case 4:
-                        if(error==0)
+                        utn_texto(resultadosuma,"1)El resultado de A+B es: %.2f \n");
+                        utn_texto(resultadoresta,"2)El resultado de A-B es: %.2f \n");
+                        if(numero2==0)
                         {
-                            respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)El resultado de A/B es:%.2f\n4)El resultado de A*B es: %.2f\n5)El factorial de A es: %d y El factorial de B es: %d\n";
-                        }else if(error==1)
+                            utn_texto(resultadodivision,"3)No se puede dividir por 0\n");
+                        }else
                         {
-                          respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)No podes dividir por 0\n4)El resultado de A*B es: %.2f\n5)El factorial de A es: %d y El factorial de B es: %d\n";
-                        }else if(error==2)
-                        {
-                           respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)El resultado de A/B es:%.2f\n4)El resultado de A*B es: %.2f\n5)Un numero negativo no puede ser factorizado\n";
-                        }else if(error==3)
-                        {
-                            respuesta="1)El resultado de A+B es:%.2f \n2)El resultado de A-B es:%.2f\n3)No podes dividir por 0\n4)El resultado de A*B es: %.2f\n5)Un numero negativo no puede ser factorizado\n";
+                            utn_texto(resultadodivision,"3)El resultado de A/B es: %.2f \n");
                         }
-                        printf(respuesta,resultadosuma,resultadoresta,resultadodivision,resultadomultiplicacion,resultadofactoreo1,resultadofactoreo2);
+                        utn_texto(resultadomultiplicacion,"4)El resultado de A*B es: %.2f \n");
+                        if(numero1 < 0)
+                        {
+                            utn_texto(resultadofactoreo1,"5)No se puede factorear el A ya que es negativo");
+                        }else
+                        {
+                            utn_texto(resultadofactoreo1,"5)El factorial de A es: %.0f");
+                        }
+                        if(numero2 < 0)
+                        {
+                            utn_texto(resultadofactoreo2," y no se puede factorear el B ya que es negativo\n");
+                        }else
+                        {
+                            utn_texto(resultadofactoreo2," y el factorial de B es: %.0f\n");
+                        }
+
 
                         system("pause");
                         break;

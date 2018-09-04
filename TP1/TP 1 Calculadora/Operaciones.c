@@ -2,7 +2,17 @@
 #include <stdlib.h>
 #include "Operaciones.h"
 
-//static int getInt(int* pResultado);
+/**
+    utn_getInt:permite ingresar un numero entero y lo validar
+    @param *pResultado: guarda el numero 1 ingresado luego de validarlo
+    @return : 0 OK, -1 error
+*/
+/**
+    utn_getFloat:permite ingresar un numero con coma y lo validar
+    @param *pResultado: guarda el numero 1 ingresado luego de validarlo
+    @return : 0 OK, -1 error
+*/
+
 static int getFloat(float* pResultado);
 static int getInt(int* pResultado);
 
@@ -76,7 +86,7 @@ int utn_getEntero(int* pNum,int reint,char* msg,char* msgError,int maximo,int mi
     return retorno;
 }
 
-int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
+/*int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
 {
     char opcion;
     int retorno=-1;
@@ -97,7 +107,7 @@ int utn_getCaracter(char* pOpcion,char* msg, char* msgError,int reint)
         }
     }
     return retorno;
-}
+}*/
 
 int utn_suma(float *pResultado,float numero1,float numero2)
 {
@@ -138,7 +148,7 @@ int utn_division(float *pResultado,float numero1, float numero2)
 
 int utn_factoreo(float numero)
 {
-    int i;
+    float i;
     float respuesta=1;
 
     if(numero==1 || numero ==0)
@@ -157,6 +167,12 @@ int utn_factoreo(float numero)
     }
     return respuesta;
 }
+
+void utn_texto(float resultado, char* msg)
+{
+    printf(msg,resultado);
+}
+
 
 static int getFloat(float* pResultado)
 {
