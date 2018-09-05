@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1536037181 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\main.c
+1536113699 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp1\tp 1 calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Operaciones.h"
