@@ -13,7 +13,6 @@ int main()
     float resultadoFactoreo1=0;
     float resultadoFactoreo2=0;
     int reint=10;
-    //int error=0;
     int opcion;
     int salir=1;
     int mostrarResultados=0;
