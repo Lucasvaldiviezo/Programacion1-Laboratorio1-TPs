@@ -227,6 +227,64 @@ int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio)
     return retorno;
 }
 
+int emp_calcularSalario(Empleado* pEmpleado,int limite)
+{
+    int retorno=-1;
+    int i;
+    float total=0;
+    float cantSalarios=0;
+    int cantMayorPromedio=0;
+    float promedio;
+    int flag=0;
+
+    if(pEmpleado != NULL && limite > 0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(pEmpleado[i].isEmpty==0)
+            {
+                total=total + pEmpleado[i].salary;
+                cantSalarios++;
+            }
+        }
+
+        promedio=total/cantSalarios;
+
+        for(i=0;i<limite;i++)
+        {
+            if(pEmpleado[i].isEmpty==0)
+            {
+                if(pEmpleado[i].salary>promedio)
+                {
+                    cantMayorPromedio++;
+                    flag=1;
+                }
+            }
+        }
+
+    }
+
+    if(cantSalarios > 0)
+    {
+        printf("El total de los salarios es: %.2f",total);
+        printf(" y el promedio es: %.2f\n",promedio);
+    }else
+    {
+        printf("No hay salarios cargados\n");
+        system("pause");
+    }
+    if(flag==1)
+    {
+        printf("La cantidad de salarios que superan el promedio es de: %d\n",cantMayorPromedio);
+        system("pause");
+    }else
+    {
+        printf("Ningun salario supera el promedio");
+        system("pause");
+    }
+    return retorno;
+}
+
 static int generarID(void)
     {
         static int cont = -1; //es privada de la funcion, además no muere

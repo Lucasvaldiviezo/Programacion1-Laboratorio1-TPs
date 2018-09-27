@@ -99,6 +99,16 @@ int main()
                     fflush(stdin);
                     break;
                 case 5:
+                    system("cls");
+                    if(flag==1)
+                    {
+                        emp_calcularSalario(empleados,EMPLEADOS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                        system("pause");
+                    }
+                    fflush(stdin);
                     break;
                 case 6:
                 salir = 1;
