@@ -101,7 +101,7 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
                             break;
                         case 2:
                             system("cls");
-                            if(utn_getNombre(auxLastName,"Ingrese el nuevo apellido del empleado: ","Ese no es un nombre valido\n")==0)
+                            if(utn_getNombre(auxLastName,"Ingrese el nuevo apellido del empleado: ","Ese no es un apellido valido\n")==0)
                             {
                                     strncpy(pEmpleado[indice].lastName,auxLastName,50);
                             }
