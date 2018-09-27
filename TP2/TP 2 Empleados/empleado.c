@@ -79,51 +79,61 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
     int indice;
     int opcion;
     int salir;
-    indice=emp_buscarPantallaPorId(pEmpleado,limite,id);
+    indice=emp_buscarEmpleadoPorId(pEmpleado,limite,id);
     if(indice >= 0)
     {
         if(pEmpleado != NULL && limite >0)
         {
-            if(utn_getEntero(&opcion,10,MENU_MODIFICAR,"Esa no es una opcion valida\n",6,0)==0)
+            do
             {
-                do
+                system("cls");
+                fflush(stdin);
+                if(utn_getEntero(&opcion,10,MENU_MODIFICAR,"Esa no es una opcion valida\n",6,0)==0)
                 {
                     switch(opcion)
                     {
                         case 1:
+                            system("cls");
                             printf("Ingrese el nuevo nombre del empleado: ");
                             if(getString(auxName,128)==0)
                             {
                                 strncpy(pEmpleado[indice].name,auxName,128);
                             }
+                            fflush(stdin);
                             break;
                         case 2:
+                            system("cls");
                             printf("Ingrese el nuevo apellido del empleado: ");
                             if(getString(auxLastName,128)==0)
                             {
-                                strncpy(pEmpleado[indice].lastName,auxLastName,128);
+                                    strncpy(pEmpleado[indice].lastName,auxLastName,128);
                             }
+                            fflush(stdin);
                             break;
                         case 3:
+                            system("cls");
                             if(utn_getEntero(&auxSector,2,"Ingrese el nuevo sector del empleado(1-Fabrica,2-Administracion,3-Tesoreria): ","Ese sector no existe\n",4,0)==0)
                             {
                                 pEmpleado[indice].sector=auxSector;
                             }
+                            fflush(stdin);
                             break;
                         case 4:
+                            system("cls");
                             if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el nuevo salario del empleado: ","Ese no es un salario valido",10000,0)==0)
                             {
-                                    pEmpleado[indice].salary=auxSalary;
+                                pEmpleado[indice].salary=auxSalary;
                             }
+                            fflush(stdin);
                             break;
                         case 5:
                             salir=1;
                     }
 
+                 }
+            }while(salir==0);
+            retorno=0;
 
-                }while(salir==0);
-                    retorno =0;
-            }
         }
 
     }else
@@ -135,7 +145,7 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
     return 0;
 }
 
-int emp_buscarPantallaPorId(Empleado* pEmpleado,int limite,int id)
+int emp_buscarEmpleadoPorId(Empleado* pEmpleado,int limite,int id)
 {
     int retorno=-1;
     int i;
@@ -154,7 +164,7 @@ int emp_buscarPantallaPorId(Empleado* pEmpleado,int limite,int id)
     return retorno;
 }
 
-int emp_borrarPantalla(Empleado* pEmpleado,int limite,int id)
+int emp_borrarEmpleado(Empleado* pEmpleado,int limite,int id)
 {
     int retorno=-1;
     int i;

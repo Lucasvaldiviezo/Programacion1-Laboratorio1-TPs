@@ -9,7 +9,8 @@
 2)Imprimir lista de empleados\n\
 3)Modificar un empleado\n\
 4)Borrar una empleado\n\
-5)Salir\n\
+5)Mostrar: Total de los salarios, promedio de los salarios y salarios por encima del promedio\n\
+6)Salir\n\
 Elija una opcion: "
 
 
@@ -27,7 +28,7 @@ int main()
     {
         system("cls");
         fflush(stdin);
-        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida",6,0);
+        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida",7,0);
         switch(opcion)
         {
             case 1:
@@ -83,13 +84,12 @@ int main()
                     fflush(stdin);
                     break;
                 case 4:
-
                     if(flag==1)
                     {
                         system("cls");
                         if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
                         {
-                            emp_borrarPantalla(empleados,EMPLEADOS_MAX,id);
+                            emp_borrarEmpleado(empleados,EMPLEADOS_MAX,id);
                         }
                     }else
                     {
@@ -99,6 +99,8 @@ int main()
                     fflush(stdin);
                     break;
                 case 5:
+                    break;
+                case 6:
                 salir = 1;
 
         }

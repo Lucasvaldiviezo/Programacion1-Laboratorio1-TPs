@@ -17,7 +17,7 @@ int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite);
 int emp_mostrarIndice(Empleado* pEmpleado,int indice);
 int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio);
 int emp_modificarIndice(Empleado* pEmpleado,int id, int limite);
-int emp_buscarPantallaPorId(Empleado* pEmpleado,int limite,int id);
-int emp_borrarPantalla(Empleado* pEmpleado,int limite,int id);
+int emp_buscarEmpleadoPorId(Empleado* pEmpleado,int limite,int id);
+int emp_borrarEmpleado(Empleado* pEmpleado,int limite,int id);
 
 #endif // EMPLEADO_H_INCLUDED
