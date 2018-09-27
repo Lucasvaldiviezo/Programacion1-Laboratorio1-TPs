@@ -14,7 +14,7 @@ int isEmpty;
 
 int emp_cargarDatosVacio(Empleado* pEmpleado,int limite);
 int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite);
-int emp_mostrarIndice(Empleado* pEmpleado,int indice);
+int emp_mostrarIndice(Empleado* pEmpleado,int limite);
 int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio);
 int emp_modificarIndice(Empleado* pEmpleado,int id, int limite);
 int emp_buscarEmpleadoPorId(Empleado* pEmpleado,int limite,int id);

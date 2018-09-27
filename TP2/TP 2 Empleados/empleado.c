@@ -184,24 +184,25 @@ int emp_borrarEmpleado(Empleado* pEmpleado,int limite,int id)
     return retorno;
 }
 
-int emp_mostrarIndice(Empleado* pEmpleado,int indice)
+int emp_mostrarIndice(Empleado* pEmpleado,int limite)
 {
     int retorno=-1;
-    if(pEmpleado != NULL && indice > -1)
+    int i;
+    if(pEmpleado != NULL && limite > 0)
     {
-        if(pEmpleado[indice].isEmpty==0)
+        for(i=0;i<limite;i++)
         {
-            printf("\nEl ID del empleado es: %d", pEmpleado[indice].ID);
-            printf("\nEl nombre del empleado es: %s",pEmpleado[indice].name);
-            printf("\nEl apellido del empleado es: %s",pEmpleado[indice].lastName);
-            printf("\nEl sector del empleado es: %d",pEmpleado[indice].sector);
-            printf("\nEl salario del empleado es: %.2f\n",pEmpleado[indice].salary);
-            retorno=0;
+            if(pEmpleado[i].isEmpty==0)
+            {
+                printf("\nEl ID del empleado es: %d", pEmpleado[i].ID);
+                printf("\nEl nombre del empleado es: %s",pEmpleado[i].name);
+                printf("\nEl apellido del empleado es: %s",pEmpleado[i].lastName);
+                printf("\nEl sector del empleado es: %d",pEmpleado[i].sector);
+                printf("\nEl salario del empleado es: %.2f\n",pEmpleado[i].salary);
+                retorno=0;
+            }
         }
-        else
-        {
-            printf("Esta Vacio");
-        }
+
     }
 
     return retorno;

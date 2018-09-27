@@ -6,10 +6,10 @@
 #define EMPLEADOS_MAX 1000
 #define TEXTO_MENU "       MENU\n\
 1)Cargar un empleado\n\
-2)Imprimir lista de empleados\n\
-3)Modificar un empleado\n\
-4)Borrar una empleado\n\
-5)Mostrar: Total de los salarios, promedio de los salarios y salarios por encima del promedio\n\
+2)Modificar un empleado\n\
+3)Borrar un empleado\n\
+4)Imprimir lista de empleados\n\
+5)Calcular salario: Total/Promedio/Mayores al promedio\n\
 6)Salir\n\
 Elija una opcion: "
 
@@ -53,25 +53,6 @@ int main()
                     if(flag==1)
                     {
                         system("cls");
-                        for(i=0;i<EMPLEADOS_MAX;i++)
-                        {
-                            if(empleados[i].isEmpty==0)
-                            {
-                                emp_mostrarIndice(empleados,i);
-                            }
-                        }
-                        system("pause");
-                    }else
-                    {
-                        printf("\n||No hay datos cargados||\n");
-                        system("pause");
-                    }
-                     fflush(stdin);
-                    break;
-                case 3:
-                    if(flag==1)
-                    {
-                        system("cls");
                         if(utn_getEntero(&id,10,"Ingrese el ID del empleado que desea modificar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
                         {
                             emp_modificarIndice(empleados,id,EMPLEADOS_MAX);
@@ -83,8 +64,8 @@ int main()
                     }
                     fflush(stdin);
                     break;
-                case 4:
-                    if(flag==1)
+                case 3:
+                     if(flag==1)
                     {
                         system("cls");
                         if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
@@ -97,6 +78,19 @@ int main()
                         system("pause");
                     }
                     fflush(stdin);
+                    break;
+                case 4:
+                     if(flag==1)
+                    {
+                        system("cls");
+                        emp_mostrarIndice(empleados,EMPLEADOS_MAX);
+                        system("pause");
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                        system("pause");
+                    }
+                     fflush(stdin);
                     break;
                 case 5:
                     system("cls");
