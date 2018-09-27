@@ -225,6 +225,26 @@ int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio)
     return retorno;
 }
 
+int emp_checkEmptyIndex(Empleado* pEmpleado,int limite)
+{
+    int i=0;
+    int retorno = 0;
+    if(pEmpleado != NULL && limite > 0)
+    {
+         while(i<limite)
+        {
+            if(pEmpleado[i].isEmpty==0)
+            {
+                retorno = -1;
+                break;
+            }
+            i++;
+        }
+    }
+
+    return retorno;
+}
+
 int emp_calcularSalario(Empleado* pEmpleado,int limite)
 {
     int retorno=-1;

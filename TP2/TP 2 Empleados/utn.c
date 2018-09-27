@@ -19,6 +19,7 @@ static int getInt(int* pResultado);
 static int isFloat(char* pBuffer);
 static int isInt(char* pBuffer);
 static int isLetra(char* pBuffer);
+static int getString(char* pBufferString,int limite);
 
 
 int utn_menu(float numero1,float numero2)
@@ -185,7 +186,7 @@ void utn_texto(float resultado, char* msg)
     printf(msg,resultado);
 }
 
-int getString(char* pBufferString,int limite)
+int static getString(char* pBufferString,int limite)
 {
     fflush(stdin);
     fgets(pBufferString,limite,stdin);

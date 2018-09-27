@@ -17,7 +17,6 @@ Elija una opcion: "
 int main()
 {
     int indiceVacio;
-    int i;
     int opcion;
     int id;
     int salir=0;
@@ -28,15 +27,18 @@ int main()
     {
         system("cls");
         fflush(stdin);
+        if(emp_checkEmptyIndex(empleados,EMPLEADOS_MAX)==-1)
+        {
+            flag=1;
+        }else
+        {
+            flag=0;
+        }
         utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida\n",7,0);
         switch(opcion)
         {
             case 1:
                     system("cls");
-                    if(flag == 0)
-                    {
-                        flag=1;
-                    }
                     if(emp_getEmptyIndex(empleados,EMPLEADOS_MAX,&indiceVacio)==0)
                     {
                         emp_cargarIndice(empleados,indiceVacio,EMPLEADOS_MAX);

@@ -73,6 +73,6 @@ int utn_resta(float *pResultado,float numero1, float numero2);
 int utn_multiplicacion(float *pResultado,float numero1, float numero2);
 int utn_division(float *pResultado,float numero1, float numero2);
 int utn_factoreo(float  numero);
-int getString(char* pBufferString,int limite);
 void utn_texto(float resultado, char* msg);
+int utn_getNombre(char* pNombre,char* msg,char* msgError);
 #endif // UTN_H_INCLUDED
