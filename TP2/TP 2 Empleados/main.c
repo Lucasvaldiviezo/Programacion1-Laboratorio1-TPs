@@ -28,7 +28,7 @@ int main()
     {
         system("cls");
         fflush(stdin);
-        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida",7,0);
+        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida\n",7,0);
         switch(opcion)
         {
             case 1:

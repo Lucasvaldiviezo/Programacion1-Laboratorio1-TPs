@@ -18,6 +18,7 @@ static int getFloat(float* pResultado);
 static int getInt(int* pResultado);
 static int isFloat(char* pBuffer);
 static int isInt(char* pBuffer);
+static int isLetra(char* pBuffer);
 
 
 int utn_menu(float numero1,float numero2)
@@ -184,31 +185,6 @@ void utn_texto(float resultado, char* msg)
     printf(msg,resultado);
 }
 
-
-static int isFloat(char* pBuffer)
-{
-    int i=0;
-    int retorno=0;
-    int contadorPuntos=0;
-    while(pBuffer[i] != '\0')
-    {
-        if(pBuffer[i] == '.' && contadorPuntos==0)
-        {
-            contadorPuntos++;
-            i++;
-            continue;
-        }
-        if(pBuffer[i] < '0' || pBuffer[i] > '9')
-        {
-            retorno=-1;
-            break;
-        }
-        i++;
-    }
-
-    return retorno;
-}
-
 int getString(char* pBufferString,int limite)
 {
     fflush(stdin);
@@ -218,6 +194,44 @@ int getString(char* pBufferString,int limite)
         pBufferString[strlen(pBufferString)-1]='\0';
     }
     return 0;
+}
+
+int utn_getNombre(char* pNombre,char* msg,char* msgError)
+{
+    int retorno=-1;
+    int max=50;
+    char buffer[max];
+    if(pNombre != NULL && msg != NULL && msgError!=NULL)
+    {
+        printf("%s",msg);
+        if(getString(buffer,max)==0 && isLetra(buffer)==0)
+        {
+            retorno=0;
+            strncpy(pNombre,buffer,max);
+        }else
+        {
+            printf("%s",msgError);
+            system("pause");
+        }
+    }
+    return retorno;
+}
+
+static int isLetra(char* pBuffer)
+{
+    int i=0;
+    int retorno=0;
+    while(pBuffer[i] != '\0')
+    {
+        if(pBuffer[i] < 'A' || pBuffer[i] > 'z')
+        {
+            retorno=-1;
+            break;
+        }
+        i++;
+    }
+
+    return retorno;
 }
 
 static int getFloat(float* pResultado)
@@ -252,6 +266,30 @@ static int getInt(int* pResultado)
 
         }
     }
+    return retorno;
+}
+
+static int isFloat(char* pBuffer)
+{
+    int i=0;
+    int retorno=0;
+    int contadorPuntos=0;
+    while(pBuffer[i] != '\0')
+    {
+        if(pBuffer[i] == '.' && contadorPuntos==0)
+        {
+            contadorPuntos++;
+            i++;
+            continue;
+        }
+        if(pBuffer[i] < '0' || pBuffer[i] > '9')
+        {
+            retorno=-1;
+            break;
+        }
+        i++;
+    }
+
     return retorno;
 }
 

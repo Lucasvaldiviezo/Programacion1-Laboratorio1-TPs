@@ -10,6 +10,7 @@
 4)Salario\n\
 5)Terminar\n\
 Elija:"
+
 static int generarID(void);
 
 int emp_cargarDatosVacio(Empleado* pEmpleado, int limite)
@@ -30,21 +31,19 @@ int emp_cargarDatosVacio(Empleado* pEmpleado, int limite)
 int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite)
 {
     int retorno=-1;
-    char auxName[128];
-    char auxLastName[128];
+    char auxName[50];
+    char auxLastName[50];
     int auxSector;
     float auxSalary;
 
     if(pEmpleado != NULL && limite >0)
     {
-        printf("Ingrese nombre del empleado: ");
-        if(getString(auxName,128)==0)
+        if(utn_getNombre(auxName,"Ingrese nombre del empleado: ","Ese no es un nombre valido\n")==0)
         {
-            strncpy(pEmpleado[indice].name,auxName,128);
-            printf("Ingrese apellido del empleado: ");
-            if(getString(auxLastName,128)==0)
+            strncpy(pEmpleado[indice].name,auxName,50);
+            if(utn_getNombre(auxLastName,"Ingrese apellido del empleado: ","Ese no es un apellido valido \n")==0)
             {
-                strncpy(pEmpleado[indice].lastName,auxLastName,128);
+                strncpy(pEmpleado[indice].lastName,auxLastName,50);
                 if(utn_getEntero(&auxSector,2,"Ingrese el sector del empleado(1-Fabrica,2-Administracion,3-Tesoreria): ","Ese sector no existe\n",4,0)==0)
                 {
                     pEmpleado[indice].sector=auxSector;
@@ -72,8 +71,8 @@ int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite)
 int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
 {
     int retorno=-1;
-    char auxName[128];
-    char auxLastName[128];
+    char auxName[50];
+    char auxLastName[50];
     int auxSector;
     float auxSalary;
     int indice;
@@ -94,19 +93,17 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
                     {
                         case 1:
                             system("cls");
-                            printf("Ingrese el nuevo nombre del empleado: ");
-                            if(getString(auxName,128)==0)
+                            if(utn_getNombre(auxName,"Ingrese el nuevo nombre del empleado: ","Ese no es un nombre valido\n")==0)
                             {
-                                strncpy(pEmpleado[indice].name,auxName,128);
+                                strncpy(pEmpleado[indice].name,auxName,50);
                             }
                             fflush(stdin);
                             break;
                         case 2:
                             system("cls");
-                            printf("Ingrese el nuevo apellido del empleado: ");
-                            if(getString(auxLastName,128)==0)
+                            if(utn_getNombre(auxLastName,"Ingrese el nuevo apellido del empleado: ","Ese no es un nombre valido\n")==0)
                             {
-                                    strncpy(pEmpleado[indice].lastName,auxLastName,128);
+                                    strncpy(pEmpleado[indice].lastName,auxLastName,50);
                             }
                             fflush(stdin);
                             break;

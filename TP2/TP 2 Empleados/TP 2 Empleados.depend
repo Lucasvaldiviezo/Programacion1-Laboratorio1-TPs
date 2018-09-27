@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1538073979 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\main.c
+1538075466 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"utn.h"
 	"empleado.h"
 
-1537991293 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\utn.c
+1538075446 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -14,12 +14,12 @@
 
 1537990923 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\utn.h
 
-1538073303 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.c
+1538075264 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"utn.h"
 	"empleado.h"
 
-1538073893 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.h
+1538075241 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.h
 
