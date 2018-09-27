@@ -3,6 +3,13 @@
 #include <string.h>
 #include "utn.h"
 #include "empleado.h"
+#define MENU_MODIFICAR "Ingrese la opcion que desea modificar:\n\
+1)Nombre\n\
+2)Apellido\n\
+3)Sector\n\
+4)Salario\n\
+5)Terminar\n\
+Elija:"
 static int generarID(void);
 
 int emp_cargarDatosVacio(Empleado* pEmpleado, int limite)
@@ -30,7 +37,7 @@ int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite)
 
     if(pEmpleado != NULL && limite >0)
     {
-        printf("Ingrese nombre del empleado:");
+        printf("Ingrese nombre del empleado: ");
         if(getString(auxName,128)==0)
         {
             strncpy(pEmpleado[indice].name,auxName,128);
@@ -38,11 +45,11 @@ int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite)
             if(getString(auxLastName,128)==0)
             {
                 strncpy(pEmpleado[indice].lastName,auxLastName,128);
-                if(utn_getEntero(&auxSector,2,"Ingrese el sector del empleado: ","Ese sector no existe\n",10,-1)==0)
+                if(utn_getEntero(&auxSector,2,"Ingrese el sector del empleado(1-Fabrica,2-Administracion,3-Tesoreria): ","Ese sector no existe\n",4,0)==0)
                 {
                     pEmpleado[indice].sector=auxSector;
 
-                    if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el salario del empleado: ","Ese no es un salario valido",4096,0)==0)
+                    if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el salario del empleado: ","Ese no es un salario valido\n",10000,0)==0)
                     {
                         pEmpleado[indice].salary=auxSalary;
                         pEmpleado[indice].ID=generarID();
@@ -70,44 +77,61 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
     int auxSector;
     float auxSalary;
     int indice;
+    int opcion;
+    int salir;
     indice=emp_buscarPantallaPorId(pEmpleado,limite,id);
     if(indice >= 0)
     {
         if(pEmpleado != NULL && limite >0)
         {
-            printf("Ingrese el nuevo nombre del empleado:");
-            if(getString(auxName,128)==0)
+            if(utn_getEntero(&opcion,10,MENU_MODIFICAR,"Esa no es una opcion valida\n",6,0)==0)
             {
-                strncpy(pEmpleado[indice].name,auxName,128);
-                printf("Ingrese el nuevo apellido del empleado: ");
-                if(getString(auxLastName,128)==0)
+                do
                 {
-                    strncpy(pEmpleado[indice].lastName,auxLastName,128);
-                    if(utn_getEntero(&auxSector,2,"Ingrese el nuevo sector del empleado: ","Ese sector no existe\n",10,-1)==0)
+                    switch(opcion)
                     {
-                        pEmpleado[indice].sector=auxSector;
-
-                        if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el nuevo salario del empleado: ","Ese no es un salario valido",4096,0)==0)
-                        {
-                            pEmpleado[indice].salary=auxSalary;
-                            retorno =0;
-                        }
-
+                        case 1:
+                            printf("Ingrese el nuevo nombre del empleado: ");
+                            if(getString(auxName,128)==0)
+                            {
+                                strncpy(pEmpleado[indice].name,auxName,128);
+                            }
+                            break;
+                        case 2:
+                            printf("Ingrese el nuevo apellido del empleado: ");
+                            if(getString(auxLastName,128)==0)
+                            {
+                                strncpy(pEmpleado[indice].lastName,auxLastName,128);
+                            }
+                            break;
+                        case 3:
+                            if(utn_getEntero(&auxSector,2,"Ingrese el nuevo sector del empleado(1-Fabrica,2-Administracion,3-Tesoreria): ","Ese sector no existe\n",4,0)==0)
+                            {
+                                pEmpleado[indice].sector=auxSector;
+                            }
+                            break;
+                        case 4:
+                            if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el nuevo salario del empleado: ","Ese no es un salario valido",10000,0)==0)
+                            {
+                                    pEmpleado[indice].salary=auxSalary;
+                            }
+                            break;
+                        case 5:
+                            salir=1;
                     }
 
-                }
 
+                }while(salir==0);
+                    retorno =0;
             }
         }
+
     }else
     {
-        printf("El ID no existe");
+        printf("El ID no existe\n");
+        system("pause");
     }
-
-
-
     return retorno;
-
     return 0;
 }
 
@@ -161,7 +185,7 @@ int emp_mostrarIndice(Empleado* pEmpleado,int indice)
             printf("\nEl nombre del empleado es: %s",pEmpleado[indice].name);
             printf("\nEl apellido del empleado es: %s",pEmpleado[indice].lastName);
             printf("\nEl sector del empleado es: %d",pEmpleado[indice].sector);
-            printf("\nEl salario del empleado es: %.2f por dia",pEmpleado[indice].salary);
+            printf("\nEl salario del empleado es: %.2f\n",pEmpleado[indice].salary);
             retorno=0;
         }
         else

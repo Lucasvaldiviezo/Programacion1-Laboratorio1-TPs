@@ -4,12 +4,14 @@
 #include "utn.h"
 #include "empleado.h"
 #define EMPLEADOS_MAX 1000
-#define TEXTO_MENU "       \n||MENU||\n\
+#define TEXTO_MENU "       MENU\n\
 1)Cargar un empleado\n\
 2)Imprimir lista de empleados\n\
 3)Modificar un empleado\n\
 4)Borrar una empleado\n\
-5)Salir\n"
+5)Salir\n\
+Elija una opcion: "
+
 
 int main()
 {
@@ -18,15 +20,22 @@ int main()
     int opcion;
     int id;
     int salir=0;
+    int flag=0;
     Empleado empleados[EMPLEADOS_MAX];
     emp_cargarDatosVacio(empleados,EMPLEADOS_MAX);
     do
     {
-    utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida",6,0);
+        system("cls");
+        fflush(stdin);
+        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida",6,0);
         switch(opcion)
         {
             case 1:
-
+                    system("cls");
+                    if(flag == 0)
+                    {
+                        flag=1;
+                    }
                     if(emp_getEmptyIndex(empleados,EMPLEADOS_MAX,&indiceVacio)==0)
                     {
                         emp_cargarIndice(empleados,indiceVacio,EMPLEADOS_MAX);
@@ -35,30 +44,59 @@ int main()
                     else
                     {
                         printf("No hay lugar");
+                        system("pause");
                     }
-
-
+                    fflush(stdin);
                     break;
                 case 2:
-                    for(i=0;i<EMPLEADOS_MAX;i++)
+                    if(flag==1)
                     {
-                        if(empleados[i].isEmpty==0)
+                        system("cls");
+                        for(i=0;i<EMPLEADOS_MAX;i++)
                         {
-                            emp_mostrarIndice(empleados,i);
+                            if(empleados[i].isEmpty==0)
+                            {
+                                emp_mostrarIndice(empleados,i);
+                            }
                         }
+                        system("pause");
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                        system("pause");
                     }
+                     fflush(stdin);
                     break;
                 case 3:
-                    if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea modificar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
+                    if(flag==1)
                     {
-                        emp_modificarIndice(empleados,id,EMPLEADOS_MAX);
+                        system("cls");
+                        if(utn_getEntero(&id,10,"Ingrese el ID del empleado que desea modificar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
+                        {
+                            emp_modificarIndice(empleados,id,EMPLEADOS_MAX);
+                        }
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                        system("pause");
                     }
+                    fflush(stdin);
                     break;
                 case 4:
-                    if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
+
+                    if(flag==1)
                     {
-                        emp_borrarPantalla(empleados,EMPLEADOS_MAX,id);
+                        system("cls");
+                        if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
+                        {
+                            emp_borrarPantalla(empleados,EMPLEADOS_MAX,id);
+                        }
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                        system("pause");
                     }
+                    fflush(stdin);
                     break;
                 case 5:
                 salir = 1;
