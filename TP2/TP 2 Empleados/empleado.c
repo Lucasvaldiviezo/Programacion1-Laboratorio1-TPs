@@ -371,7 +371,7 @@ int emp_calcularSalario(Empleado* pEmpleado,int limite)
 }
 
 static int generarID(void)
-    {
+{
         static int cont = -1; //es privada de la funcion, además no muere
         return ++cont;
-    }
+}
