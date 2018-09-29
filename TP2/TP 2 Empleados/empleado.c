@@ -13,6 +13,31 @@ Elija:"
 
 static int generarID(void);
 
+int emp_cargarForzadaIndice(Empleado* pEmpleado,int limite,char* name, char* lastName,int sector, float salary)
+{
+    int retorno=-1;
+    int indice;
+    emp_getEmptyIndex(pEmpleado,limite,&indice);
+
+    if(pEmpleado != NULL && limite >0)
+    {
+          if(indice >= 0)
+          {
+            strncpy(pEmpleado[indice].name,name,50);
+            strncpy(pEmpleado[indice].lastName,lastName,50);
+            pEmpleado[indice].sector=sector;
+            pEmpleado[indice].salary=salary;
+            pEmpleado[indice].ID=generarID();
+            pEmpleado[indice].isEmpty=0;
+            retorno =0;
+          }
+
+    }
+
+
+    return retorno;
+}
+
 int emp_cargarDatosVacio(Empleado* pEmpleado, int limite)
 {
     int retorno=-1;
@@ -48,7 +73,7 @@ int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite)
                 {
                     pEmpleado[indice].sector=auxSector;
 
-                    if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el salario del empleado: ","Ese no es un salario valido\n",10000,0)==0)
+                    if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el salario del empleado: ","Ese no es un salario valido\n",1000000,0)==0)
                     {
                         pEmpleado[indice].salary=auxSalary;
                         pEmpleado[indice].ID=generarID();
@@ -117,7 +142,7 @@ int emp_modificarIndice(Empleado* pEmpleado,int id, int limite)
                             break;
                         case 4:
                             system("cls");
-                            if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el nuevo salario del empleado: ","Ese no es un salario valido",10000,0)==0)
+                            if(utn_getNumeroDecimal(&auxSalary,10,"Ingrese el nuevo salario del empleado: ","Ese no es un salario valido",1000000,0)==0)
                             {
                                 pEmpleado[indice].salary=auxSalary;
                             }
@@ -219,8 +244,6 @@ int emp_ordenarIndice(Empleado* pEmpleado, int limite)
   char tempLastName[50];
   if(pEmpleado != NULL && limite > 0)
   {
-    retorno=0;
-
     for(i=1;i<limite;i++)
     {
         if(pEmpleado[i].isEmpty==0)
@@ -241,11 +264,9 @@ int emp_ordenarIndice(Empleado* pEmpleado, int limite)
             pEmpleado[j+1].salary=tempSalary;
             strcpy(pEmpleado[j+1].name,tempName);
             strcpy(pEmpleado[j+1].lastName,tempLastName);
-
-
         }
-
     }
+    retorno=0;
   }
   return retorno;
 }

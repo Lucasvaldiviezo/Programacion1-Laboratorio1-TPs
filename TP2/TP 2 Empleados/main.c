@@ -23,6 +23,11 @@ int main()
     int flag=0;
     Empleado empleados[EMPLEADOS_MAX];
     emp_cargarDatosVacio(empleados,EMPLEADOS_MAX);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Lucas","Valdiviezo",3,5000);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Martin","Bottani",3,1999);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Mariana","Rodriguez",1,8000);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Antonio","Banderas",2,30000);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Manuelita","Peguajo",1,11500);
     do
     {
         system("cls");

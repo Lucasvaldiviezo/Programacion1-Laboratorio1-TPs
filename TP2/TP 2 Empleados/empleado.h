@@ -11,7 +11,7 @@ char lastName[128];
 float salary;
 int isEmpty;
 }typedef Empleado;
-
+int emp_cargarForzadaIndice(Empleado* pEmpleado,int limite,char* name, char* lastName,int sector, float salary);
 int emp_cargarDatosVacio(Empleado* pEmpleado,int limite);
 int emp_cargarIndice(Empleado* pEmpleado,int indice,int limite);
 int emp_mostrarIndice(Empleado* pEmpleado,int limite);
