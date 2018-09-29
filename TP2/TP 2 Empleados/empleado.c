@@ -187,22 +187,67 @@ int emp_mostrarIndice(Empleado* pEmpleado,int limite)
     int i;
     if(pEmpleado != NULL && limite > 0)
     {
-        for(i=0;i<limite;i++)
+        if(emp_ordenarIndice(pEmpleado,limite)==0)
         {
-            if(pEmpleado[i].isEmpty==0)
+            for(i=0;i<limite;i++)
             {
-                printf("\nEl ID del empleado es: %d", pEmpleado[i].ID);
-                printf("\nEl nombre del empleado es: %s",pEmpleado[i].name);
-                printf("\nEl apellido del empleado es: %s",pEmpleado[i].lastName);
-                printf("\nEl sector del empleado es: %d",pEmpleado[i].sector);
-                printf("\nEl salario del empleado es: %.2f\n",pEmpleado[i].salary);
-                retorno=0;
+                if(pEmpleado[i].isEmpty==0)
+                {
+                    printf("\nEl ID del empleado es: %d", pEmpleado[i].ID);
+                    printf("\nEl nombre del empleado es: %s",pEmpleado[i].name);
+                    printf("\nEl apellido del empleado es: %s",pEmpleado[i].lastName);
+                    printf("\nEl sector del empleado es: %d",pEmpleado[i].sector);
+                    printf("\nEl salario del empleado es: %.2f\n",pEmpleado[i].salary);
+                    retorno=0;
+                }
             }
         }
-
     }
 
     return retorno;
+}
+
+int emp_ordenarIndice(Empleado* pEmpleado, int limite)
+{
+  int retorno=-1;
+  int i;
+  int j;
+  int tempID;
+  int tempSector;
+  float tempSalary;
+  char tempName[50];
+  char tempLastName[50];
+  if(pEmpleado != NULL && limite > 0)
+  {
+    retorno=0;
+
+    for(i=1;i<limite;i++)
+    {
+        if(pEmpleado[i].isEmpty==0)
+        {
+            tempID=pEmpleado[i].ID;
+            tempSector=pEmpleado[i].sector;
+            tempSalary=pEmpleado[i].salary;
+            strcpy(tempName,pEmpleado[i].name);
+            strcpy(tempLastName,pEmpleado[i].lastName);
+            j=i-1;
+            while(j>=0 && tempSector<pEmpleado[j].sector)
+            {
+                pEmpleado[j+1]=pEmpleado[j];
+                j--;
+            }
+            pEmpleado[j+1].ID=tempID;
+            pEmpleado[j+1].sector=tempSector;
+            pEmpleado[j+1].salary=tempSalary;
+            strcpy(pEmpleado[j+1].name,tempName);
+            strcpy(pEmpleado[j+1].lastName,tempLastName);
+
+
+        }
+
+    }
+  }
+  return retorno;
 }
 int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio)
 {

@@ -21,5 +21,6 @@ int emp_buscarEmpleadoPorId(Empleado* pEmpleado,int limite,int id);
 int emp_borrarEmpleado(Empleado* pEmpleado,int limite,int id);
 int emp_calcularSalario(Empleado* pEmpleado,int limite);
 int emp_checkEmptyIndex(Empleado* pEmpleado,int limite);
+int emp_ordenarIndice(Empleado* pEmpleado, int limite);
 
 #endif // EMPLEADO_H_INCLUDED
