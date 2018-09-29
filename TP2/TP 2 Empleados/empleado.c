@@ -254,9 +254,13 @@ int emp_ordenarIndice(Empleado* pEmpleado, int limite)
             strcpy(tempName,pEmpleado[i].name);
             strcpy(tempLastName,pEmpleado[i].lastName);
             j=i-1;
-            while(j>=0 && tempSector<pEmpleado[j].sector)
+            while(j>=0 && tempSector<pEmpleado[j].sector /*strcmp(tempLastName,pEmpleado[j].lastName)<0*/)
             {
                 pEmpleado[j+1]=pEmpleado[j];
+                if(tempSector==pEmpleado[j].sector &&strcmp(tempLastName,pEmpleado[j].lastName)<0)
+                {
+                   pEmpleado[j+1]=pEmpleado[j];
+                }
                 j--;
             }
             pEmpleado[j+1].ID=tempID;
@@ -264,6 +268,7 @@ int emp_ordenarIndice(Empleado* pEmpleado, int limite)
             pEmpleado[j+1].salary=tempSalary;
             strcpy(pEmpleado[j+1].name,tempName);
             strcpy(pEmpleado[j+1].lastName,tempLastName);
+
         }
     }
     retorno=0;
