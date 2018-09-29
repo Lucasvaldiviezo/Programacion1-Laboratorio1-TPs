@@ -57,7 +57,15 @@ int main()
                         system("cls");
                         if(utn_getEntero(&id,10,"Ingrese el ID del empleado que desea modificar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
                         {
-                            emp_modificarIndice(empleados,id,EMPLEADOS_MAX);
+                            if(emp_buscarEmpleadoPorId(empleados,EMPLEADOS_MAX,id)!= -1)
+                            {
+                                emp_modificarIndice(empleados,id,EMPLEADOS_MAX);
+                            }else
+                            {
+                                printf("\nEl ID no existe\n");
+                                system("pause");
+                            }
+
                         }
                     }else
                     {
@@ -70,9 +78,16 @@ int main()
                      if(flag==1)
                     {
                         system("cls");
-                        if(utn_getEntero(&id,10,"Ingrese el ID de la pantalla que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
+                        if(utn_getEntero(&id,10,"Ingrese el ID del empleado que desea borrar: ","Ese no es un ID valido\n",EMPLEADOS_MAX,-1)==0)
                         {
-                            emp_borrarEmpleado(empleados,EMPLEADOS_MAX,id);
+                            if(emp_buscarEmpleadoPorId(empleados,EMPLEADOS_MAX,id)!= -1)
+                            {
+                              emp_borrarEmpleado(empleados,EMPLEADOS_MAX,id);
+                            }else
+                            {
+                                 printf("\nEl ID no existe\n");
+                                 system("pause");
+                            }
                         }
                     }else
                     {
@@ -95,9 +110,10 @@ int main()
                      fflush(stdin);
                     break;
                 case 5:
-                    system("cls");
+
                     if(flag==1)
                     {
+                        system("cls");
                         emp_calcularSalario(empleados,EMPLEADOS_MAX);
                     }else
                     {
