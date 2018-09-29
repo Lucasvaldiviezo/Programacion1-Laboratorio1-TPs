@@ -224,7 +224,7 @@ static int isLetra(char* pBuffer)
     int retorno=0;
     while(pBuffer[i] != '\0')
     {
-        if(pBuffer[i] < 'A' || pBuffer[i] > 'z')
+        if((pBuffer[i] < 'A' || pBuffer[i] > 'Z') && (pBuffer[i] < 'a' || pBuffer[i] > 'z') && (pBuffer[i] != ' '))
         {
             retorno=-1;
             break;
