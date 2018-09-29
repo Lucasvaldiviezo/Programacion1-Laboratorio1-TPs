@@ -257,10 +257,6 @@ int emp_ordenarIndice(Empleado* pEmpleado, int limite)
             while(j>=0 && tempSector<pEmpleado[j].sector /*strcmp(tempLastName,pEmpleado[j].lastName)<0*/)
             {
                 pEmpleado[j+1]=pEmpleado[j];
-                if(tempSector==pEmpleado[j].sector &&strcmp(tempLastName,pEmpleado[j].lastName)<0)
-                {
-                   pEmpleado[j+1]=pEmpleado[j];
-                }
                 j--;
             }
             pEmpleado[j+1].ID=tempID;
