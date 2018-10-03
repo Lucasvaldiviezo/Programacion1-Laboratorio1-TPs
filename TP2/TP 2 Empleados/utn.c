@@ -3,22 +3,43 @@
 #include <string.h>
 #include "utn.h"
 #include <ctype.h>
-/**
-    utn_getInt:permite ingresar un numero entero y lo validar
-    @param *pResultado: guarda el numero 1 ingresado luego de validarlo
-    @return : 0 OK, -1 error
-*/
-/**
-    utn_getFloat:permite ingresar un numero con coma y lo validar
-    @param *pResultado: guarda el numero 1 ingresado luego de validarlo
-    @return : 0 OK, -1 error
-*/
 
+/**
+    getFloat:permite ingresar un numero con coma en una cadena de caracteres y lo transforma a float
+    @param pResultado: guarda el numero 1 ingresado luego de validarlo
+    @return : 0 OK, -1 error
+*/
 static int getFloat(float* pResultado);
+/**
+    getInt:permite ingresar un numero entero en una cadena de caracteres y lo transforma a int
+    @param pResultado: guarda el numero 1 ingresado luego de validarlo
+    @return : 0 OK, -1 error
+*/
 static int getInt(int* pResultado);
+/**
+    isFloat:valida si la cadena de caracteres solo tiene numeros y una coma
+    @param pBuffer: cadena de caracteres que recibe para validar
+    @return : 0 OK, -1 error
+*/
 static int isFloat(char* pBuffer);
+/**
+    isInt:valida si la cadena de caracteres solo tiene numeros
+    @param pBuffer: cadena de caracteres que recibe para validar
+    @return : 0 OK, -1 error
+*/
 static int isInt(char* pBuffer);
+/**
+    isLetra:valida si la cadena de caracteres solo letras y convierte la primera letra en mayuscula
+    @param pBuffer: cadena de caracteres que recibe para validar
+    @return : 0 OK, -1 error
+*/
 static int isLetra(char* pBuffer);
+/**
+    getString:permite ingresar una cadena de caracteres recibieno un array
+    @param pBuffer: cadena de caracteres que recibe
+    @param limite: guarda el int del limite del array
+    @return : 0 OK, -1 error
+*/
 static int getString(char* pBufferString,int limite);
 
 
