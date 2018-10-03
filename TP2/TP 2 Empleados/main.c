@@ -29,6 +29,11 @@ int main()
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Antonio","Banderas",2,31000);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Carlos","Peruano",2,30000);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Anabel","Peguajo",1,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Antonia","Areguajo",3,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Carlos","Vibora",2,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Anabel","Zetonga",1,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Jose","Zbroso",3,11500);
+
     do
     {
         system("cls");

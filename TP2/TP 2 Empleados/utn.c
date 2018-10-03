@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
-
+#include <ctype.h>
 /**
     utn_getInt:permite ingresar un numero entero y lo validar
     @param *pResultado: guarda el numero 1 ingresado luego de validarlo
@@ -20,6 +20,7 @@ static int isFloat(char* pBuffer);
 static int isInt(char* pBuffer);
 static int isLetra(char* pBuffer);
 static int getString(char* pBufferString,int limite);
+
 
 
 int utn_menu(float numero1,float numero2)
@@ -222,9 +223,14 @@ static int isLetra(char* pBuffer)
 {
     int i=0;
     int retorno=0;
+    int flag=0;
     while(pBuffer[i] != '\0')
     {
-        if((pBuffer[i] < 'A' || pBuffer[i] > 'Z') && (pBuffer[i] < 'a' || pBuffer[i] > 'z') && (pBuffer[i] != ' '))
+        if(flag==0)
+        {
+            pBuffer[i]=toupper(pBuffer[i]);
+            flag=1;
+        }else if ((pBuffer[i] < 'A' || pBuffer[i] > 'Z') && (pBuffer[i] < 'a' || pBuffer[i] > 'z') && (pBuffer[i] != ' '))
         {
             retorno=-1;
             break;
