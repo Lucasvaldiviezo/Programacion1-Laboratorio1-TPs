@@ -92,7 +92,7 @@ int emp_calcularSalario(Empleado* pEmpleado,int limite);
 */
 int emp_checkEmptyIndex(Empleado* pEmpleado,int limite);
 /**
-    emp_ordenarEmpleadoPorSectorApellid:recibe el array para ordenarlo con Insertion por Sector y Apellido
+    emp_ordenarEmpleadoPorSectorApellid:recibe el array para ordenarlo con Burbujeo por Sector y Apellido
     @param pEmpleado: guarda el array recibido
     @param limite: guarda el int del limite del array
     @return return 0 OK, -1 error.
