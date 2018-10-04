@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1538542539 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\main.c
+1538622196 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,12 +15,12 @@
 
 1538541862 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\utn.h
 
-1538542309 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.c
+1538622750 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"utn.h"
 	"empleado.h"
 
-1538541485 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.h
+1538622731 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\tp2\tp 2 empleados\empleado.h
 

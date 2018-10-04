@@ -25,10 +25,10 @@ int main()
     emp_cargarDatosVacio(empleados,EMPLEADOS_MAX);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Lucas","Valdiviezo",3,5000);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Martin","Zanahoria",3,1999);
-    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Carlos","Peruano",2,30000);
-    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Anabel","Peguajo",1,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Nicolas","Peruano",2,30000);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Sofia","Peguajo",1,19500);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Carlos","Vibora",2,11500);
-    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Anabel","Zetonga",1,11500);
+    emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Anabel","Zetonga",1,35000);
     emp_cargarForzadaIndice(empleados,EMPLEADOS_MAX,"Jose","Zbroso",3,11500);
 
     do

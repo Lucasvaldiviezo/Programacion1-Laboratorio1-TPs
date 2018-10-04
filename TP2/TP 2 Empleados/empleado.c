@@ -212,7 +212,7 @@ int emp_mostrarIndice(Empleado* pEmpleado,int limite)
     int i;
     if(pEmpleado != NULL && limite > 0)
     {
-        if(emp_ordenarEmpleadoPorApellido(pEmpleado,limite)==0 && emp_ordenarEmpleadoPorSector(pEmpleado,limite)==0)
+        if(emp_ordenarEmpleadoPorSectorApellido(pEmpleado,limite)==0)
         {
             for(i=0;i<limite;i++)
             {
@@ -232,84 +232,36 @@ int emp_mostrarIndice(Empleado* pEmpleado,int limite)
     return retorno;
 }
 
-int emp_ordenarEmpleadoPorSector(Empleado* pEmpleado, int limite)
+int emp_ordenarEmpleadoPorSectorApellido(Empleado* pEmpleado, int limite)
 {
-  int retorno=-1;
-  int i;
-  int j;
-  int tempID;
-  int tempSector;
-  float tempSalary;
-  char tempName[50];
-  char tempLastName[50];
-  if(pEmpleado != NULL && limite > 0)
-  {
-    for(i=1;i<limite;i++)
+    int retorno=-1;
+    int i=0;
+    int flagSwap;
+    Empleado auxEmpleado;
+    if(pEmpleado != NULL && limite > 0)
     {
+        retorno=0;
         if(pEmpleado[i].isEmpty==0)
         {
-
-            tempID=pEmpleado[i].ID;
-            tempSector=pEmpleado[i].sector;
-            tempSalary=pEmpleado[i].salary;
-            strcpy(tempName,pEmpleado[i].name);
-            strcpy(tempLastName,pEmpleado[i].lastName);
-            j=i-1;
-            while(j>=0 && tempSector<pEmpleado[j].sector /*strcmp(tempLastName,pEmpleado[j].lastName)<0*/)
+            do
             {
-                pEmpleado[j+1]=pEmpleado[j];
-                j--;
-            }
-            pEmpleado[j+1].ID=tempID;
-            pEmpleado[j+1].sector=tempSector;
-            pEmpleado[j+1].salary=tempSalary;
-            strcpy(pEmpleado[j+1].name,tempName);
-            strcpy(pEmpleado[j+1].lastName,tempLastName);
+                flagSwap=0;
+                for(i=0;i<limite-1;i++)
+                {
+                    if((pEmpleado[i].sector > pEmpleado[i+1].sector) ||
+                        (pEmpleado[i].sector == pEmpleado[i+1].sector && strcmp(pEmpleado[i].lastName,pEmpleado[i+1].lastName)>0))
+                    {
+                        flagSwap=1;
+                        auxEmpleado=pEmpleado[i];
+                        pEmpleado[i]=pEmpleado[i+1];
+                        pEmpleado[i+1]=auxEmpleado;
+                    }
+                }
+            }while(flagSwap==1);
+
         }
     }
-    retorno=0;
-  }
-  return retorno;
-}
-
-int emp_ordenarEmpleadoPorApellido(Empleado* pEmpleado, int limite)
-{
-  int retorno=-1;
-  int i;
-  int j;
-  int tempID;
-  int tempSector;
-  float tempSalary;
-  char tempName[50];
-  char tempLastName[50];
-  if(pEmpleado != NULL && limite > 0)
-  {
-    for(i=1;i<limite;i++)
-    {
-        if(pEmpleado[i].isEmpty==0)
-        {
-
-            tempID=pEmpleado[i].ID;
-            tempSector=pEmpleado[i].sector;
-            tempSalary=pEmpleado[i].salary;
-            strcpy(tempName,pEmpleado[i].name);
-            strcpy(tempLastName,pEmpleado[i].lastName);
-            j=i-1;
-            while(j>=0 && strcmp(tempLastName,pEmpleado[j].lastName)<0)
-            {
-                pEmpleado[j+1]=pEmpleado[j];
-                j--;
-            }
-            pEmpleado[j+1].ID=tempID;
-            pEmpleado[j+1].sector=tempSector;
-            pEmpleado[j+1].salary=tempSalary;
-            strcpy(pEmpleado[j+1].name,tempName);
-            strcpy(pEmpleado[j+1].lastName,tempLastName);
-        }
-    }
-    retorno=0;
-  }
-  return retorno;
+    return retorno;
 }
 
 int emp_getEmptyIndex(Empleado* pEmpleado,int limite,int* indiceVacio)
