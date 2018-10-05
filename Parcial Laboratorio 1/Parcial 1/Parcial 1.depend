@@ -1,0 +1,106 @@
+# depslib dependency file v1.0
+1538692169 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"empleado.h"
+
+1538691963 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/utn.h
+
+1538612166 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/empleado.h
+
+1538700981 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1538694160 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+
+1538701149 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/cliente.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1538700928 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/cliente.h
+	"ventaAfiche.h"
+
+1538176626 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/pantallas.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"pantallas.h"
+	"utn.h"
+
+1538176626 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/pantallas.h
+
+1538176626 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/contratacion.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"pantallas.h"
+	"contratacion.h"
+
+1538176626 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/contratacion.h
+	"pantallas.h"
+
+1538701277 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/ventaAfiche.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1538700942 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/ventaAfiche.h
+
+1538701149 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/cliente.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1538691963 /home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/utn.h
+
+1538700928 /home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/cliente.h
+	"ventaAfiche.h"
+
+1538700942 /home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/ventaAfiche.h
+
+1538701306 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1538694160 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+
+1538701277 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/TPs/Parcial Laboratorio 1/Parcial 1/ventaAfiche.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+

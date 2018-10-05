@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -81,7 +81,7 @@ int utn_getNumeroDecimal(float *pNum, int reint, char* msg, char* msgError,float
             }else
             {
                 printf("%s",msgError);
-                fflush(stdin);
+                __fpurge(stdin);
             }
 
 
@@ -112,6 +112,28 @@ int utn_getEntero(int* pNum,int reint,char* msg,char* msgError,int maximo,int mi
             }
 
 
+        }else
+        {
+            printf(msgError);
+        }
+    }
+
+
+    return retorno;
+}
+
+int utn_getEnteroSinLimites(int* pNum,int reint,char* msg,char* msgError)
+{
+    int auxiliarNum;
+    int retorno = -1;
+    for(;reint>0;reint--)
+    {
+        printf(msg);
+        if(getInt(&auxiliarNum) == 0)
+        {
+                *pNum = auxiliarNum;
+                retorno = 0;
+                break;
         }else
         {
             printf(msgError);
@@ -240,6 +262,27 @@ int utn_getNombre(char* pNombre,char* msg,char* msgError)
     return retorno;
 }
 
+int utn_getCUIT(char* pCuit,char* msg,char* msgError)
+{
+    int retorno=-1;
+    int max=12;
+    char buffer[max];
+    if(pCuit != NULL && msg != NULL && msgError!=NULL)
+    {
+        printf("%s",msg);
+        if(getString(buffer,max)==0 && isInt(buffer)==0)
+        {
+            retorno=0;
+            strncpy(pCuit,buffer,max);
+        }else
+        {
+            printf("%s",msgError);
+            system("pause");
+        }
+    }
+    return retorno;
+}
+
 static int isLetra(char* pBuffer)
 {
     int i=0;
@@ -251,7 +294,9 @@ static int isLetra(char* pBuffer)
         {
             pBuffer[i]=toupper(pBuffer[i]);
             flag=1;
-        }else if ((pBuffer[i] < 'A' || pBuffer[i] > 'Z') && (pBuffer[i] < 'a' || pBuffer[i] > 'z') && (pBuffer[i] != ' '))
+        }else if ((pBuffer[i] < 'A' || pBuffer[i] > 'Z') &&
+                (pBuffer[i] < 'a' || pBuffer[i] > 'z') &&
+                (pBuffer[i] != ' ') && (pBuffer[i] != '.'))
         {
             retorno=-1;
             break;
