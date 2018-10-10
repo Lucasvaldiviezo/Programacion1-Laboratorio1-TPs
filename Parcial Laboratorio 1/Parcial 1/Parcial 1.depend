@@ -114,12 +114,12 @@
 
 1539137031 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\utn.h
 
-1539151134 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\cliente.h
+1539151531 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\cliente.h
 	"ventaAfiche.h"
 
 1539150674 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\ventaafiche.h
 
-1539149640 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\main.c
+1539152051 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -143,7 +143,7 @@
 	"cliente.h"
 	"ventaAfiche.h"
 
-1539149202 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.c
+1539152474 source:c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -152,5 +152,5 @@
 	"ventaAfiche.h"
 	"informar.h"
 
-1539149228 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.h
+1539152461 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.h
 

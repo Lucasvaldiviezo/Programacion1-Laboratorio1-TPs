@@ -88,6 +88,14 @@ int cliente_getEmptyIndex(Cliente* pCliente,int limite,int* indiceVacio);
     @return return 0 OK, -1 error.
 */
 int cliente_checkEmptyIndex(Cliente* pCliente,int limite);
+/**
+    cliente_mostrarIndiceConVentas: muestra los datos de todas las posiciones del array 1 pero le suma la cantidad de  ventas del array 2
+    @param pCliente: guarda el array 1 recibido
+    @param limite: guarda el int del limite del array 1
+    @param pVenta: guarda el array 2 recibido
+    @param limite2: guarda el int del limite del array 2
+    @return return 0 OK, -1 error.
+*/
 int cliente_mostrarIndiceConVentas(Cliente* pCliente,int limite,Venta* pVenta,int limite2);
 
 

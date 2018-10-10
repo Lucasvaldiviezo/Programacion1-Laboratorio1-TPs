@@ -30,7 +30,7 @@ int emp_cargarForzadaIndice(Empleado* pEmpleado,int limite,char* name, char* las
 */
 int emp_cargarDatosVacio(Empleado* pEmpleado,int limite);
 /**
-    emp_cargarDatosVacio: carga valores en la posicion del array recibida
+    emp_cargarIndice: carga valores en la posicion del array recibida
     @param pEmpleado: guarda el array recibido
     @param indice: guarda el int de la posicion del array
     @param limite: guarda el int del limite del array

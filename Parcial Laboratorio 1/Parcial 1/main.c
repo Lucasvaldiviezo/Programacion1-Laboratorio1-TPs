@@ -18,8 +18,8 @@
 8)Salir\n\
         \nINFORMES\n\
 9)Imprimir clientes por nombre y apellido\n\
-10)-\n\
-11)-\n\
+10)Cantidad de ventas que superan los 10 afiches\n\
+11)Cantidad de ventas que no superan los 10 afiches\n\
 12)-\n\
 13)-\n\
 14)-\n\
@@ -49,9 +49,9 @@ int main()
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Hola.jpg","ZONA SUR","A cobrar",15,0);
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Chau.jpg","ZONA OESTE","A cobrar",30,0);
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"EAAAA.jpg","ZONA NORTE","Cobrada",50,1);
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"EAAAA.jpg","ZONA NORTE","A cobrar",50,1);
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"EAAAA.jpg","ZONA NORTE","A cobrar",50,2);
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"EAAAA.jpg","ZONA NORTE","Cobrada",50,2);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"SOYMAYOR.jpg","ZONA NORTE","A cobrar",70,1);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Miravos.jpg","ZONA ESTE","A cobrar",9,2);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Altoke.jpg","ZONA SUR","Cobrada",5,2);
 
     do
     {
@@ -205,13 +205,30 @@ int main()
                 case 9:
                      if(flag==1)
                     {
-                        informar_OrdenarClientePorNombreApellido(clientes,CLIENTES_MAX);
+                        informar_OrdenarClientePorApellidoNombre(clientes,CLIENTES_MAX);
                         cliente_mostrarIndice(clientes,CLIENTES_MAX);
                     }else
                     {
                         printf("\n||No hay datos cargados||\n");
                     }
-
+                    break;
+                case 10:
+                    if(flag==1)
+                    {
+                       informar_cantAfichesMayor(ventas,VENTAS_MAX,10);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 11:
+                    if(flag==1)
+                    {
+                       informar_cantAfichesMenor(ventas,VENTAS_MAX,10);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
         }
     }while(salir==0);
 
