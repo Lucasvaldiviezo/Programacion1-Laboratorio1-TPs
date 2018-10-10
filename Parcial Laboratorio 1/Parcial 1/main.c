@@ -4,6 +4,7 @@
 #include "utn.h"
 #include "cliente.h"
 #include "ventaAfiche.h"
+#include "informar.h"
 #define CLIENTES_MAX 100
 #define VENTAS_MAX 1000
 #define TEXTO_MENU "       \nMENU\n\
@@ -15,6 +16,17 @@
 6)Cobrar Venta\n\
 7)Imprimir lista de clientes\n\
 8)Salir\n\
+        \nINFORMES\n\
+9)Imprimir clientes por nombre y apellido\n\
+10)-\n\
+11)-\n\
+12)-\n\
+13)-\n\
+14)-\n\
+15)-\n\
+16)-\n\
+17)-\n\
+18)-\n\
 Elija una opcion: "
 
 
@@ -31,6 +43,7 @@ int main()
     cliente_cargarDatosVacio(clientes,CLIENTES_MAX);
     venta_cargarDatosVacio(ventas,VENTAS_MAX);
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Lucas","Valdiviezo","20400914983");
+    cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Antonio","Valdiviezo","20400914983");
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Martin","Bottani","20410491485");
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Nicolas","Alvarez","20301619981");
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Hola.jpg","ZONA SUR","A cobrar",15,0);
@@ -50,7 +63,7 @@ int main()
         {
             flag=0;
         }
-        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida\n",9,0);
+        utn_getEntero(&opcion,3,TEXTO_MENU,"Esa no es una opcion valida\n",19,0);
         switch(opcion)
         {
             case 1:
@@ -188,6 +201,16 @@ int main()
                     break;
                 case 8:
                 salir = 1;
+                    break;
+                case 9:
+                     if(flag==1)
+                    {
+                        informar_OrdenarClientePorNombreApellido(clientes,CLIENTES_MAX);
+                        cliente_mostrarIndice(clientes,CLIENTES_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
 
         }
     }while(salir==0);

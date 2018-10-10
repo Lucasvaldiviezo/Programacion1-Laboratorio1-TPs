@@ -1,4 +1,4 @@
-#include <stdio_ext.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -81,7 +81,7 @@ int utn_getNumeroDecimal(float *pNum, int reint, char* msg, char* msgError,float
             }else
             {
                 printf("%s",msgError);
-                __fpurge(stdin);
+                fflush(stdin);
             }
 
 
