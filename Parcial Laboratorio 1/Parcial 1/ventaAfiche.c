@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -291,7 +291,7 @@ int venta_cobrarVenta(Venta* pVenta,int limite,int id)
     return retorno;
 }
 
-int venta_cantidadDeVentasCliente(Venta* pVenta,int limite,int idCliente)
+int venta_cantidadDeVentasClienteACobrar(Venta* pVenta,int limite,int idCliente)
 {
     int retorno=0;
     int i;
@@ -300,6 +300,36 @@ int venta_cantidadDeVentasCliente(Venta* pVenta,int limite,int idCliente)
     for(i=0;i<limite;i++)
     {
         if(pVenta[i].isEmpty==0 && pVenta[i].idCliente==idCliente && strcmp(pVenta[i].estado,"A cobrar")==0)
+        {
+            retorno++;
+        }
+    }
+    return retorno;
+}
+int venta_cantidadDeVentas(Venta* pVenta,int limite,int idCliente)
+{
+    int retorno=0;
+    int i;
+
+
+    for(i=0;i<limite;i++)
+    {
+        if(pVenta[i].isEmpty==0 && pVenta[i].idCliente==idCliente)
+        {
+            retorno++;
+        }
+    }
+    return retorno;
+}
+int venta_cantidadDeVentasClienteCobradas(Venta* pVenta,int limite,int idCliente)
+{
+    int retorno=0;
+    int i;
+
+
+    for(i=0;i<limite;i++)
+    {
+        if(pVenta[i].isEmpty==0 && pVenta[i].idCliente==idCliente && strcmp(pVenta[i].estado,"Cobrada")==0)
         {
             retorno++;
         }

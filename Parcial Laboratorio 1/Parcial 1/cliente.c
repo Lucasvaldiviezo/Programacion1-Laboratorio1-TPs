@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -200,7 +200,7 @@ int cliente_mostrarIndiceConVentas(Cliente* pCliente,int limite,Venta* pVenta,in
         {
             if(pCliente[i].isEmpty==0)
             {
-                cantVentas=venta_cantidadDeVentasCliente(pVenta,limite2,pCliente[i].ID);
+                cantVentas=venta_cantidadDeVentasClienteACobrar(pVenta,limite2,pCliente[i].ID);
                 printf("\nEl ID del cliente es: %d", pCliente[i].ID);
                 printf("\nEl nombre del cliente es: %s",pCliente[i].name);
                 printf("\nEl apellido del cliente es: %s",pCliente[i].lastName);

@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -17,16 +17,16 @@
 7)Imprimir lista de clientes\n\
 8)Salir\n\
         \nINFORMES\n\
-9)Imprimir clientes por nombre y apellido\n\
-10)Cantidad de ventas que superan los 10 afiches\n\
-11)Cantidad de ventas que no superan los 10 afiches\n\
-12)-\n\
-13)-\n\
+9)Ciente con menos ventas a Cobrar\n\
+10)Cliente con menos ventas Cobradas\n\
+11)Cliente con menos ventas\n\
+12)Zona con mas afiches\n\
+13)Cliente con menos afiches comprados\n\
 14)-\n\
-15)-\n\
-16)-\n\
-17)-\n\
-18)-\n\
+15)Cliente con cantidad de afiches mayor a 500\n\
+16)Listar cantidad de afiches por zona\n\
+17)Promedio Afiches\n\
+18)Listar ventas ordenedas por Zona\n\
 Elija una opcion: "
 
 
@@ -46,16 +46,16 @@ int main()
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Antonio","Valdiviezo","20400914983");
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Martin","Bottani","20410491485");
     cliente_cargarForzadaIndice(clientes,CLIENTES_MAX,"Nicolas","Alvarez","20301619981");
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Hola.jpg","ZONA SUR","A cobrar",15,0);
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Chau.jpg","ZONA OESTE","A cobrar",30,0);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Hola.jpg","ZONA SUR","A cobrar",120,0);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Chau.jpg","ZONA OESTE","A cobrar",3000,0);
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"EAAAA.jpg","ZONA NORTE","Cobrada",50,1);
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"SOYMAYOR.jpg","ZONA NORTE","A cobrar",70,1);
     venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Miravos.jpg","ZONA ESTE","A cobrar",9,2);
-    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Altoke.jpg","ZONA SUR","Cobrada",5,2);
-
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Ewww.jpg","ZONA ESTE","A cobrar",200,2);
+    venta_cargaForzadaVenta(ventas,VENTAS_MAX,"Altoke.jpg","ZONA SUR","Cobrada",501,2);
     do
     {
-        fflush(stdin);
+        __fpurge(stdin);
         if(cliente_checkEmptyIndex(clientes,CLIENTES_MAX)==-1)
         {
             flag=1;
@@ -203,10 +203,9 @@ int main()
                 salir = 1;
                     break;
                 case 9:
-                     if(flag==1)
+                    if(flag==1)
                     {
-                        informar_OrdenarClientePorApellidoNombre(clientes,CLIENTES_MAX);
-                        cliente_mostrarIndice(clientes,CLIENTES_MAX);
+                        informar_clienteMenosVentasACobrar(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
                     }else
                     {
                         printf("\n||No hay datos cargados||\n");
@@ -215,7 +214,7 @@ int main()
                 case 10:
                     if(flag==1)
                     {
-                       informar_cantAfichesMayor(ventas,VENTAS_MAX,10);
+                        informar_clienteMenosVentasCobradas(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
                     }else
                     {
                         printf("\n||No hay datos cargados||\n");
@@ -224,11 +223,67 @@ int main()
                 case 11:
                     if(flag==1)
                     {
-                       informar_cantAfichesMenor(ventas,VENTAS_MAX,10);
+                        informar_clienteMenosVentas(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
                     }else
                     {
                         printf("\n||No hay datos cargados||\n");
                     }
+                break;
+                case 12:
+                    if(flag==1)
+                    {
+                        informar_mostrarZonaConMasAfiches(ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                break;
+                case 13:
+                    if(flag==1)
+                    {
+                        informar_clienteConMenosAfiches(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 15:
+                    if(flag==1)
+                    {
+                        informar_clienteCantAfichesMayor(clientes,CLIENTES_MAX,ventas,VENTAS_MAX,500);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 16:
+                    if(flag==1)
+                    {
+                        informar_mostrarAfichePorZona(ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 17:
+                    if(flag==1)
+                    {
+                        informar_promedioAfiches(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 18:
+                     if(flag==1)
+                    {
+                        informar_OrdenarVentaPorZona(ventas,VENTAS_MAX);
+                        venta_mostrarIndice(ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+
         }
     }while(salir==0);
 

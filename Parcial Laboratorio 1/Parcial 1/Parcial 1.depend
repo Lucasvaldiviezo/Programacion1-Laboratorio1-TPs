@@ -6,6 +6,8 @@
 	"utn.h"
 	"empleado.h"
 
+1539152052 h"
+
 1538691963 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/utn.h
 
 1538612166 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/empleado.h
@@ -18,12 +20,16 @@
 	"cliente.h"
 	"ventaAfiche.h"
 
+1539150650 he.h"
+
 1538694160 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/utn.c
 	<stdio_ext.h>
 	<stdlib.h>
 	<string.h>
 	"utn.h"
 	<ctype.h>
+
+1539137120 
 
 1538701149 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/cliente.c
 	<stdio_ext.h>
@@ -43,6 +49,8 @@
 	"pantallas.h"
 	"utn.h"
 
+1538176626 .h"
+
 1538176626 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/pantallas.h
 
 1538176626 source:/home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/contratacion.c
@@ -52,6 +60,8 @@
 	"utn.h"
 	"pantallas.h"
 	"contratacion.h"
+
+1538176626 ion.h"
 
 1538176626 /home/alumno/Documentos/Programacion 1-Laboratorio 1/Parcial Laboratorio 1/Parcial 1/contratacion.h
 	"pantallas.h"
@@ -153,4 +163,104 @@
 	"informar.h"
 
 1539152461 c:\users\usuario\desktop\lucas\utn\1er cuatrimestre\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.h
+
+1539148808 source:e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1539137032 e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\utn.h
+
+1539151532 e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\cliente.h
+	"ventaAfiche.h"
+
+1539150676 e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\ventaafiche.h
+
+1539152476 source:e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+	"informar.h"
+
+1539152462 e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\informar.h
+
+1539152052 source:e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+	"informar.h"
+
+1539137120 source:e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+
+1539150650 source:e:\utn\programacion 1-laboratorio 1\tps\parcial laboratorio 1\parcial 1\ventaafiche.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1539208539 source:/home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/cliente.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1539137032 /home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/utn.h
+
+1539151532 /home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/cliente.h
+	"ventaAfiche.h"
+
+1539209284 /home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/ventaAfiche.h
+
+1539207416 source:/home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/utn.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+
+1539209278 source:/home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/ventaAfiche.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+
+1539214115 source:/home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/informar.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+	"informar.h"
+
+1539213922 /home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/informar.h
+
+1539214100 source:/home/alumno/Escritorio/Parcial Laboratorio 1/Parcial 1/main.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+	"ventaAfiche.h"
+	"informar.h"
 

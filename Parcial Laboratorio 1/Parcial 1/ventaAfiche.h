@@ -116,7 +116,9 @@ int venta_cobrarVenta(Venta* pVenta,int limite,int id);
     @param idCliente:guarda el int del cliente de la venta a buscar
     @return return 0 OK, -1 error.
 */
-int venta_cantidadDeVentasCliente(Venta* pVenta,int limite,int idCliente);
+int venta_cantidadDeVentasClienteACobrar(Venta* pVenta,int limite,int idCliente);
+int venta_cantidadDeVentasClienteCobradas(Venta* pVenta,int limite,int idCliente);
+int venta_cantidadDeVentas(Venta* pVenta,int limite,int idCliente);
 
 
 #endif // VENTAAFICHE_H_INCLUDED

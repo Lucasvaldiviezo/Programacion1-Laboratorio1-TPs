@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
@@ -53,7 +53,7 @@ int utn_menu(float numero1,float numero2)
     printf("3. Calcular todas las operaciones\n");
     printf("4. Informar resultados\n");
     printf("5. Salir\n");
-    fflush(stdin);
+    __fpurge(stdin);
     utn_getEntero(&opcion,10,"Seleccione una opcion: ","Esa opcion no es valida \n",6,0);
 
 
@@ -232,7 +232,7 @@ void utn_texto(float resultado, char* msg)
 
 int static getString(char* pBufferString,int limite)
 {
-    fflush(stdin);
+    __fpurge(stdin);
     fgets(pBufferString,limite,stdin);
     if(pBufferString[strlen(pBufferString)-1]=='\n')
     {
