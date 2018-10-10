@@ -22,7 +22,7 @@
 11)Cliente con menos ventas\n\
 12)Zona con mas afiches\n\
 13)Cliente con menos afiches comprados\n\
-14)-\n\
+14)Cliente con mas afiches a cobrar\n\
 15)Cliente con cantidad de afiches mayor a 500\n\
 16)Listar cantidad de afiches por zona\n\
 17)Promedio Afiches\n\
@@ -242,6 +242,15 @@ int main()
                     if(flag==1)
                     {
                         informar_clienteConMenosAfiches(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
+                    }else
+                    {
+                        printf("\n||No hay datos cargados||\n");
+                    }
+                    break;
+                case 14:
+                    if(flag==1)
+                    {
+                        informar_clienteMasAfichesACobrar(clientes,CLIENTES_MAX,ventas,VENTAS_MAX);
                     }else
                     {
                         printf("\n||No hay datos cargados||\n");

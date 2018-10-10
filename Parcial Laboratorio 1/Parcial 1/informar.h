@@ -19,4 +19,6 @@ int informar_clienteCantAfichesUnCliente(Venta* pVenta,int limite,int idCliente)
 int informar_clienteConMenosAfiches(Cliente* pCliente,int limite,Venta* pVenta,int limite2);
 int informar_mostrarAfichePorZona(Venta* pVenta,int limite);
 int informar_clienteCantAfichesMayor(Cliente* pCliente,int limite,Venta* pVenta,int limite2,int valorComparativo);
+int informar_clienteCantAfichesUnClienteACobrar(Venta* pVenta,int limite,int idCliente);
+int informar_clienteMasAfichesACobrar(Cliente* pCliente,int limite, Venta* pVenta,int limite2);
 #endif // INFORMAR_H_INCLUDED

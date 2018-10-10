@@ -249,7 +249,21 @@ int informar_clienteCantAfichesUnCliente(Venta* pVenta,int limite,int idCliente)
     }
     return totalAfiches;
 }
+int informar_clienteCantAfichesUnClienteACobrar(Venta* pVenta,int limite,int idCliente)
+{
+    int totalAfiches=0;
+    int i;
 
+
+    for(i=0;i<limite;i++)
+    {
+        if(pVenta[i].isEmpty==0 && pVenta[i].idCliente==idCliente && strcmp(pVenta[i].estado,"A cobrar")==0)
+        {
+            totalAfiches=totalAfiches+pVenta[i].cantAfiches;
+        }
+    }
+    return totalAfiches;
+}
 int informar_clienteConMenosAfiches(Cliente* pCliente,int limite,Venta* pVenta,int limite2)
 {
     int retorno=-1;
@@ -339,6 +353,44 @@ int informar_promedioAfiches(Cliente* pCliente,int limite,Venta* pVenta,int limi
     }
     promedioAfiches=totalAfiches/cantClientes;
     printf("\nEl promedio de afiches por cliente es: %.2f\n",promedioAfiches);
+    return retorno;
+}
+
+int informar_clienteMasAfichesACobrar(Cliente* pCliente,int limite, Venta* pVenta,int limite2)
+{
+  int retorno=-1;
+    int i;
+    int cantAfichesMayores;
+    int clienteAImprimir;
+    int cantAfichesActual;
+    if(pCliente != NULL && limite > 0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(pCliente[i].isEmpty==0 && i==0)
+            {
+                cantAfichesMayores=informar_clienteCantAfichesUnClienteACobrar(pVenta,limite2,pCliente[i].ID);
+                clienteAImprimir=i;
+            }else if(pCliente[i].isEmpty==0)
+            {
+                cantAfichesActual=informar_clienteCantAfichesUnClienteACobrar(pVenta,limite2,pCliente[i].ID);
+                if(cantAfichesActual > cantAfichesMayores)
+                {
+                    cantAfichesMayores=cantAfichesActual;
+                    clienteAImprimir=i;
+                }
+            }
+        }
+                retorno=0;
+                printf("\nEl ID del cliente con mas afiches a cobrar es: %d", pCliente[clienteAImprimir].ID);
+                printf("\nEl nombre del cliente con mas afiches a cobrar es: %s",pCliente[clienteAImprimir].name);
+                printf("\nEl apellido del cliente con mas afiches a cobrar es: %s",pCliente[clienteAImprimir].lastName);
+                printf("\nEl cuit del cliente con mas afiches a cobrar es: %s",pCliente[clienteAImprimir].cuit);
+                printf("\nLa cantidad de afiches que tiene es: %d\n\n",cantAfichesMayores);
+
+
+    }
+
     return retorno;
 }
 
