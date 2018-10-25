@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "LinkedList.h"
 #include "Employee.h"
+
 
 static int isValidNombre(char* nom);
 static int isValidId(char* employeeId);
@@ -63,7 +65,26 @@ int employee_getNombre(Employee* this,char* nombre)
 
 static int isValidNombre(char* nombre)
 {
-    return 1;
+    int i=0;
+    int retorno=0;
+    int flag=0;
+    while(nombre[i] != '\0')
+    {
+        if(flag==0)
+        {
+            nombre[i]=toupper(nombre[i]);
+            flag=1;
+        }else if ((nombre[i] < 'A' || nombre[i] > 'Z') &&
+                (nombre[i] < 'a' || nombre[i] > 'z') &&
+                (nombre[i] != ' ') && (nombre[i] != '.'))
+        {
+            retorno=-1;
+            break;
+        }
+        i++;
+    }
+
+    return retorno;
 }
 
 int employee_setId(Employee* this,char* id)
