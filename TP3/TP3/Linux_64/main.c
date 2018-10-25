@@ -21,7 +21,7 @@
 
 int main()
 {
-    int option = 0;
+    int option = 10;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
         switch(option)

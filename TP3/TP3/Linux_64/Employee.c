@@ -15,7 +15,7 @@ Employee* employee_new(void)
 {
     return (Employee*) malloc(sizeof(Employee));
 }
-Employee* employee_newConParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
+Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
     Employee* p;
     p=employee_new();
@@ -75,8 +75,7 @@ static int isValidNombre(char* nombre)
             nombre[i]=toupper(nombre[i]);
             flag=1;
         }else if ((nombre[i] < 'A' || nombre[i] > 'Z') &&
-                (nombre[i] < 'a' || nombre[i] > 'z') &&
-                (nombre[i] != ' ') && (nombre[i] != '.'))
+                (nombre[i] < 'a' || nombre[i] > 'z'))
         {
             retorno=-1;
             break;
