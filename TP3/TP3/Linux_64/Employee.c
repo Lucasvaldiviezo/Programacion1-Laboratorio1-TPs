@@ -27,6 +27,7 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
             employee_setSueldo(p,sueldoStr) == -1)
         {
             employee_delete(p);
+            p=NULL;
         }
     }
     return p;
@@ -46,7 +47,7 @@ int employee_setNombre(Employee* this,char* nombre)
 {
     int retorno=-1;
     //validar!!
-    if(this != NULL && isValidNombre(nombre))
+    if(this != NULL && isValidNombre(nombre)==0)
     {
         strncpy(this->nombre,nombre,sizeof(this->nombre));
         retorno=0;

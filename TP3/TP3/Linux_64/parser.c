@@ -17,7 +17,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     char bufferHorasTrabajadas[1024];
     char bufferSueldo[1024];
     Employee *auxiliarPunteroEmployee;
-    int flagOnce=1;
+    int flagOnce=0;
     while(!feof(pFile))
     {
         if(flagOnce)
