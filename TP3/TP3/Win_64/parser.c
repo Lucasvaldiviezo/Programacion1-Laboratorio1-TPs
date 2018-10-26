@@ -12,7 +12,35 @@
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-
+    char bufferId[1024];
+    char bufferNombre[1024];
+    char bufferHorasTrabajadas[1024];
+    char bufferSueldo[1024];
+    Employee *auxiliarPunteroEmployee;
+    int flagOnce=0;
+    while(!feof(pFile))
+    {
+        if(flagOnce)
+        {
+            fscanf(pFile,"%s",bufferId);
+            flagOnce=0;
+        }
+        else if(fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",bufferId,
+                                                    bufferNombre,
+                                                    bufferHorasTrabajadas,
+                                                    bufferSueldo)==4)
+        {
+            auxiliarPunteroEmployee=employee_newParametros(bufferId,bufferNombre,bufferHorasTrabajadas,bufferSueldo);
+            if(auxiliarPunteroEmployee!=NULL)
+            {
+                ll_add(pArrayListEmployee,auxiliarPunteroEmployee);
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
     return 1;
 }
 
