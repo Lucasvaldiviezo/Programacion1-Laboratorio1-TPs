@@ -3,6 +3,11 @@
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
+#include "utn.h"
+#define MENU "\nIngrese una opcion\n\
+1)Cargar los datos desde el archivo\n\
+2)Imprimir\n\
+Elija:"
 
 /****************************************************
     Menu:
@@ -21,14 +26,17 @@
 
 int main()
 {
-    int option = 10;
+    int option = 1;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
+        utn_getEntero(&option,10,MENU,"Esa opcion no es correcta",10,0);
         switch(option)
         {
             case 1:
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
+            case 2:
+                controller_ListEmployee(listaEmpleados);
         }
     }while(option != 10);
     return 0;

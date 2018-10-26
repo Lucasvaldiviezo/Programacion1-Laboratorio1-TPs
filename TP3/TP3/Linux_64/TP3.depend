@@ -53,26 +53,28 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1533133026 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Controller.c
+1540515529 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+	"parser.h"
 
 1533133022 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/LinkedList.h
 
-1540510975 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Employee.h
+1540512089 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Employee.h
 
-1533133026 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/main.c
+1540515488 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Controller.h"
 	"Employee.h"
+	"utn.h"
 
 1533133022 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Controller.h
 
-1540510982 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/parser.c
+1540515530 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -87,11 +89,13 @@
 
 1540418254 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/utn.h
 
-1540510974 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Employee.c
+1540515331 source:/home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/Employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"LinkedList.h"
 	"Employee.h"
+
+1533133022 /home/alumno/Escritorio/Programacion1-Laboratorio1-TPs/TP3/TP3/Linux_64/parser.h
 

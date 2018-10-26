@@ -22,7 +22,9 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     if(p!=NULL)
     {
         if( employee_setNombre(p,nombreStr)==-1 ||
-            employee_setId(p,idStr)==-1)
+            employee_setId(p,idStr)==-1 ||
+            employee_setHorasTrabajadas(p,horasTrabajadasStr) == -1 ||
+            employee_setSueldo(p,sueldoStr) == -1)
         {
             employee_delete(p);
         }
@@ -42,11 +44,12 @@ int employee_delete(Employee* this)
 
 int employee_setNombre(Employee* this,char* nombre)
 {
-    int retorno=0;
+    int retorno=-1;
     //validar!!
     if(this != NULL && isValidNombre(nombre))
     {
         strncpy(this->nombre,nombre,sizeof(this->nombre));
+        retorno=0;
     }
     return retorno;
 }
@@ -262,4 +265,29 @@ int employee_buscarPorId(Employee* arrayEmployee[], int limite, int employeeId)
         }
     }
     return retorno;
+}
+
+void employee_mostrar(LinkedList* arrayLinkedList)
+{
+    int i;
+    int auxId;
+    char auxNombre[1024];
+    int auxHorasTrabajadas;
+    int auxSueldo;
+    int limite;
+    limite=ll_len(arrayLinkedList);
+    Employee* auxEmployee;
+    for(i=0;i<limite;i++)
+    {
+        auxEmployee=ll_get(arrayLinkedList,i);
+
+        if( employee_getId(auxEmployee,&auxId)==0 &&
+            employee_getNombre(auxEmployee,auxNombre)==0 &&
+            employee_getHorasTrabajadas(auxEmployee,&auxHorasTrabajadas)==0 &&
+            employee_getSueldo(auxEmployee,&auxSueldo)==0)
+        {
+            printf("ID: %d - Nombre: %s - Horas Trabajadas: %d - Sueldo: %d \n", auxId,auxNombre,auxHorasTrabajadas,auxSueldo);
+        }
+
+    }
 }
