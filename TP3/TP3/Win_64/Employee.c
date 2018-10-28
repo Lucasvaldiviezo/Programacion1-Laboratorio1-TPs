@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "LinkedList.h"
 #include "Employee.h"
+#include "utn.h"
 
 
 static int isValidNombre(char* nom);
@@ -93,11 +94,24 @@ static int isValidNombre(char* nombre)
 int employee_setId(Employee* this,char* id)
 {
     int retorno=-1;
-    //validar!!
+    static int proximoId=-1;
+    int idAuxiliar;
     if(this != NULL && isValidId(id)==0)
     {
-        this->id=atoi(id);
-        retorno=0;
+        //this->id=atoi(id);
+        idAuxiliar=atoi(id);
+        if(idAuxiliar==-1)
+        {
+            proximoId++;
+            this->id=proximoId;
+            retorno=0;
+        }else if (idAuxiliar>proximoId)
+        {
+            proximoId=idAuxiliar;
+            this->id=proximoId;
+            retorno=0;
+        }
+
     }
     return retorno;
 }
@@ -208,6 +222,25 @@ static int isValidSueldo(char* sueldo)
             break;
         }
         i++;
+    }
+
+    return retorno;
+}
+
+int employee_alta(LinkedList* arrayEmployee)
+{
+    int retorno=-1;
+    char auxNombre[64];
+    char auxId[64]="-1";
+    char auxHorasTrabajadas[64];
+    char auxSueldo[64];
+    Employee* auxiliarPunteroEmployee;
+
+    if(utn_getNombre(auxNombre,"Ingrese su nombre","Ese no es un nombre")==0)
+    {
+        auxiliarPunteroEmployee=employee_newParametros(auxId,auxNombre,auxHorasTrabajadas,auxSueldo);
+        ll_add(arrayEmployee,auxiliarPunteroEmployee);
+        retorno=0;
     }
 
     return retorno;
