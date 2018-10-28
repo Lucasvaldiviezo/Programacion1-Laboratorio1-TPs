@@ -25,5 +25,6 @@ int employee_setSueldo(Employee* this,char* sueldo);
 int employee_getSueldo(Employee* this,int* sueldo);
 
 void employee_mostrar(LinkedList* arrayLinkedList);
+int employee_alta(LinkedList* arrayEmployee);
 
 #endif // employee_H_INCLUDED
