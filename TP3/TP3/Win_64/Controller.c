@@ -43,6 +43,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
+    employee_alta(pArrayListEmployee);
     return 1;
 }
 

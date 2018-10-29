@@ -27,6 +27,7 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
             employee_setHorasTrabajadas(p,horasTrabajadasStr) == -1 ||
             employee_setSueldo(p,sueldoStr) == -1)
         {
+
             employee_delete(p);
             p=NULL;
         }
@@ -98,14 +99,13 @@ int employee_setId(Employee* this,char* id)
     int idAuxiliar;
     if(this != NULL && isValidId(id)==0)
     {
-        //this->id=atoi(id);
         idAuxiliar=atoi(id);
         if(idAuxiliar==-1)
         {
             proximoId++;
             this->id=proximoId;
             retorno=0;
-        }else if (idAuxiliar>proximoId)
+        }else if(idAuxiliar>proximoId)
         {
             proximoId=idAuxiliar;
             this->id=proximoId;
@@ -132,8 +132,15 @@ static int isValidId(char* employeeId)
 {
     int i=0;
     int retorno=0;
+    int contadorDeGuiones=0;
     while(employeeId[i] != '\0')
     {
+        if(employeeId[i] == '-' && contadorDeGuiones==0)
+        {
+            contadorDeGuiones++;
+            i++;
+            continue;
+        }
         if(employeeId[i] < '0' || employeeId[i] > '9')
         {
             retorno=-1;
@@ -230,16 +237,26 @@ static int isValidSueldo(char* sueldo)
 int employee_alta(LinkedList* arrayEmployee)
 {
     int retorno=-1;
-    char auxNombre[64];
-    char auxId[64]="-1";
-    char auxHorasTrabajadas[64];
-    char auxSueldo[64];
+    char bufferNombre[1024];
+    char bufferId[1024]="-1";
+    int auxHorasTrabajadas;
+    int auxSueldo;
+    char bufferHorasTrabajadas[1024];
+    char bufferSueldo[1024];
     Employee* auxiliarPunteroEmployee;
 
-    if(utn_getNombre(auxNombre,"Ingrese su nombre","Ese no es un nombre")==0)
+    if( utn_getNombre(bufferNombre,"\nIngrese el nombre del empleado: ","Ese no es un nombre")==0 &&
+        utn_getEnteroSinLimites(&auxHorasTrabajadas,10,"Ingrese las horas trabajadas del empleado: ","Ese no es un numero")==0 &&
+        utn_getEnteroSinLimites(&auxSueldo,10,"Ingrese el sueldo del empleado: ","Ese no es un numero")==0)
     {
-        auxiliarPunteroEmployee=employee_newParametros(auxId,auxNombre,auxHorasTrabajadas,auxSueldo);
-        ll_add(arrayEmployee,auxiliarPunteroEmployee);
+        itoa(auxHorasTrabajadas,bufferHorasTrabajadas,10);
+        itoa(auxSueldo,bufferSueldo,10);
+        auxiliarPunteroEmployee=employee_newParametros(bufferId,bufferNombre,bufferHorasTrabajadas,bufferSueldo);
+        if(auxiliarPunteroEmployee!=NULL)
+        {
+            ll_add(arrayEmployee,auxiliarPunteroEmployee);
+        }
+
         retorno=0;
     }
 
