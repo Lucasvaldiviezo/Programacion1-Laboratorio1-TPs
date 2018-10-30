@@ -263,7 +263,62 @@ int employee_alta(LinkedList* arrayEmployee)
     return retorno;
 }
 
-int employee_buscarLugarVacio(Employee* arrayEmployee[], int limite)
+int employee_modificar(LinkedList* arrayEmployee)
+{
+    int retorno=-1;
+    int employeeId;
+    int indice;
+    char bufferNombre[1024];
+    int auxHorasTrabajadas;
+    int auxSueldo;
+    Employee* auxEmployee;
+    if(arrayEmployee != NULL && utn_getEnteroSinLimites(&employeeId,10,"Ingrese el ID del empleado a modificar: ","Ese id no es valido")==0)
+    {
+        indice=employee_buscarPorId(arrayEmployee,employeeId);
+        if(indice >=0)
+        {
+            auxEmployee=ll_get(arrayEmployee,indice);
+            if( utn_getNombre(bufferNombre,"Ingrese el nuevo nombre del empleado: ","Ese no es un nombre\n")==0 &&
+                utn_getEnteroSinLimites(&auxHorasTrabajadas,10,"Ingrese la nueva cantidad de horas trabajadas: ","Esas no es una hora valida")==0 &&
+                utn_getEnteroSinLimites(&auxSueldo,10,"Ingrese el nuevo sueldo: ","Ese no es un sueldo valido\n")==0)
+            {
+                auxEmployee->horasTrabajadas=auxHorasTrabajadas;
+                auxEmployee->sueldo=auxSueldo;
+                strcpy(auxEmployee->nombre,bufferNombre);
+            }
+        }else
+        {
+            printf("El indice no existe\n");
+        }
+    }
+    return retorno;
+}
+
+int employee_borrar(LinkedList* arrayEmployee)
+{
+    int retorno=-1;
+    int employeeId;
+    int indice;
+    Employee* auxEmployee;
+    if(arrayEmployee != NULL && utn_getEnteroSinLimites(&employeeId,10,"Ingrese el ID del empleado a borrar: ","Ese id no es valido")==0)
+    {
+        indice=employee_buscarPorId(arrayEmployee,employeeId);
+        if(indice >=0)
+        {
+            auxEmployee=ll_get(arrayEmployee,indice);
+            if(employee_delete(auxEmployee)==0)
+            {
+                ll_remove(arrayEmployee,indice);
+                printf("\n||Se ha borrado el empleado||\n");
+            }
+        }else
+        {
+            printf("El indice no existe\n");
+        }
+    }
+    return retorno;
+}
+/*int employee_buscarLugarVacio(Employee* arrayEmployee[], int limite)
 {
     int retorno=-1;
     int i;
@@ -279,7 +334,7 @@ int employee_buscarLugarVacio(Employee* arrayEmployee[], int limite)
         }
     }
     return retorno;
-}
+}*/
 
 int employee_inicializarArray(Employee* arrayEmployee[], int limite)
 {
@@ -298,16 +353,17 @@ int employee_inicializarArray(Employee* arrayEmployee[], int limite)
     return retorno;
 }
 
-int employee_buscarPorId(Employee* arrayEmployee[], int limite, int employeeId)
+int employee_buscarPorId(LinkedList* pArrayEmployee, int employeeId)
 {
     int retorno=-1;
     int i;
+    int limite=ll_len(pArrayEmployee);
     Employee* auxEmployee;
-    if(arrayEmployee!=NULL)
+    if(pArrayEmployee!=NULL)
     {
         for(i=0;i<limite;i++)
         {
-            auxEmployee=arrayEmployee[i];
+            auxEmployee=(Employee*)ll_get(pArrayEmployee,i);
             if(auxEmployee!=NULL && auxEmployee->id == employeeId)
             {
                 retorno=i;

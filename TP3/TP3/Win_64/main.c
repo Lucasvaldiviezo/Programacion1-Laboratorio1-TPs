@@ -37,7 +37,8 @@ int main()
     int option = 1;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
-        utn_getEntero(&option,10,MENU,"Esa opcion no es correcta",10,0);
+        utn_getEntero(&option,10,MENU,"Esa opcion no es correcta",11,0);
+        printf("\n");
         switch(option)
         {
             case 1:
@@ -46,8 +47,16 @@ int main()
             case 3:
                 controller_addEmployee(listaEmpleados);
                 break;
+            case 4:
+                controller_editEmployee(listaEmpleados);
+                break;
+            case 5:
+                controller_removeEmployee(listaEmpleados);
+                break;
             case 6:
                 controller_ListEmployee(listaEmpleados);
+            case 10:
+                ll_deleteLinkedList(listaEmpleados);
         }
     }while(option != 10);
     return 0;

@@ -16,9 +16,11 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     FILE* pFile;
     pFile=fopen(path,"r");
-    parser_EmployeeFromText(pFile,pArrayListEmployee);
+    if(parser_EmployeeFromText(pFile,pArrayListEmployee)==0)
+    {
+       printf("\n||DATOS CARGADOS||\n");
+    }
     fclose(pFile);
-     printf("\n||DATOS CARGADOS||\n");
     return 1;
 }
 
@@ -56,6 +58,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
+    employee_modificar(pArrayListEmployee);
     return 1;
 }
 
@@ -68,6 +71,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
+    employee_borrar(pArrayListEmployee);
     return 1;
 }
 
@@ -81,7 +85,6 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     employee_mostrar(pArrayListEmployee);
-
     return 1;
 }
 
@@ -94,6 +97,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
+
     return 1;
 }
 

@@ -13,7 +13,7 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 int employee_delete(Employee* this);
 
 int employee_setId(Employee* this,char* id);
-int employee_getId(Employee* this,int* id);
+int employee_buscarPorId(LinkedList* pArrayEmployee, int employeeId);
 
 int employee_setNombre(Employee* this,char* nombre);
 int employee_getNombre(Employee* this,char* nombre);
@@ -26,5 +26,7 @@ int employee_getSueldo(Employee* this,int* sueldo);
 
 void employee_mostrar(LinkedList* arrayLinkedList);
 int employee_alta(LinkedList* arrayEmployee);
+int employee_modificar(LinkedList* arrayEmployee);
+int employee_borrar(LinkedList* arrayEmployee);
 
 #endif // employee_H_INCLUDED
