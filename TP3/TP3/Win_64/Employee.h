@@ -29,7 +29,7 @@ int employee_alta(LinkedList* arrayEmployee);
 int employee_modificar(LinkedList* arrayEmployee);
 int employee_borrar(LinkedList* arrayEmployee);
 int employee_buscarPorId(LinkedList* pArrayEmployee, int employeeId);
-int employee_guardarTexto(LinkedList* pArrayEmployee, char* path);
 int employee_criterioNombre(void* thisA,void* thisB);
-
+int employee_guardarTexto(LinkedList* pArrayEmployee, char* path);
+int employee_guardarBinario(LinkedList* pArrayEmployee,char* path);
 #endif // employee_H_INCLUDED

@@ -19,8 +19,11 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     pFile=fopen(path,"r");
     if(pFile != NULL && parser_EmployeeFromText(pFile,pArrayListEmployee)==0)
     {
-       printf("||DATOS CARGADOS||\n");
+       printf("||DATOS CARGADOS EN TEXTO||\n");
        retorno=0;
+    }else
+    {
+        printf("No se pudieron cargar los datos en texto\n");
     }
     fclose(pFile);
     return retorno;
@@ -35,7 +38,19 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    FILE* pFile;
+    pFile=fopen(path,"rb");
+    if(pFile!=NULL && parser_EmployeeFromBinary(pFile,pArrayListEmployee)==0)
+    {
+        printf("||DATOS CARGADOS POR BINARIO||\n");
+        retorno=0;
+    }else
+    {
+        printf("No se cargaron los datos en binario\n");
+    }
+    fclose(pFile);
+    return retorno;
 }
 
 /** \brief Alta de empleados
@@ -115,6 +130,13 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        ll_sort(pArrayListEmployee,employee_criterioNombre,1);
+        printf("||Lista ordenada por nombre||\n");
+        retorno=0;
+    }
+
     return retorno;
 }
 
@@ -145,6 +167,12 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_guardarBinario(pArrayListEmployee,path)==0)
+    {
+        printf("||Los datos se guardaron en el archivo binario||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 

@@ -130,6 +130,13 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        ll_sort(pArrayListEmployee,employee_criterioNombre,1);
+        printf("||Lista ordenada por nombre||\n");
+        retorno=0;
+    }
+
     return retorno;
 }
 

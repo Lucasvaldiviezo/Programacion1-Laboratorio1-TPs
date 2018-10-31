@@ -456,13 +456,13 @@ void employee_mostrar(LinkedList* arrayLinkedList)
     }
 }
 
-/*int employee_criterioNombre(void* thisA,void* thisB)
+int employee_criterioNombre(void* thisA,void* thisB)
 {
     int retorno=0;
     char nombreA[1024];
     char nombreB[1024];
-    employee_getNombre(thisA,nombreA);
-    employee_getNombre(thisB,nombreB);
+    employee_getNombre((Employee*)thisA,nombreA);
+    employee_getNombre((Employee*)thisB,nombreB);
     if(strcmp(nombreA,nombreB)>0)
     {
         retorno=1;
@@ -471,7 +471,7 @@ void employee_mostrar(LinkedList* arrayLinkedList)
         retorno=-1;
     }
     return retorno;
-}*/
+}
 /**
     employee_guardarTexto: guarda los datos del LinkedList en la ruta del archivo recibido;
     @param arrayLinkedList: recibe el array a guardar.
@@ -519,6 +519,7 @@ int employee_guardarBinario(LinkedList* pArrayEmployee,char* path)
     fclose(pArchivo);
     return retorno;
 }
+
 
 
 

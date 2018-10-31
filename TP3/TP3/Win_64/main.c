@@ -44,6 +44,9 @@ int main()
             case 1:
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
+            case 2:
+                controller_loadFromBinary("data.bin",listaEmpleados);
+                break;
             case 3:
                 controller_addEmployee(listaEmpleados);
                 break;
@@ -62,8 +65,11 @@ int main()
             case 8:
                 controller_saveAsText("data.csv",listaEmpleados);
                 break;
+            case 9:
+                controller_saveAsBinary("data.bin",listaEmpleados);
             case 10:
                 ll_deleteLinkedList(listaEmpleados);
+
         }
     }while(option != 10);
     return 0;

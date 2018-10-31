@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -323,8 +323,9 @@ int employee_alta(LinkedList* arrayEmployee)
         utn_getEnteroSinLimites(&auxHorasTrabajadas,10,"Ingrese las horas trabajadas del empleado: ","Ese no es un numero")==0 &&
         utn_getEnteroSinLimites(&auxSueldo,10,"Ingrese el sueldo del empleado: ","Ese no es un numero")==0)
     {
-        itoa(auxHorasTrabajadas,bufferHorasTrabajadas,10);
-        itoa(auxSueldo,bufferSueldo,10);
+        sprintf(bufferHorasTrabajadas,"%d",auxHorasTrabajadas);
+        sprintf(bufferSueldo,"%d",auxSueldo);
+        printf("%s",bufferSueldo);
         auxiliarPunteroEmployee=employee_newParametros(bufferId,bufferNombre,bufferHorasTrabajadas,bufferSueldo);
         if(auxiliarPunteroEmployee!=NULL)
         {
@@ -457,11 +458,11 @@ void employee_mostrar(LinkedList* arrayLinkedList)
 
 int employee_criterioNombre(void* thisA,void* thisB)
 {
-    int retorno;
+    int retorno=0;
     char nombreA[1024];
     char nombreB[1024];
-    employee_getNombre(thisA,nombreA);
-    employee_getNombre(thisB,nombreB);
+    employee_getNombre((Employee*)thisA,nombreA);
+    employee_getNombre((Employee*)thisB,nombreB);
     if(strcmp(nombreA,nombreB)>0)
     {
         retorno=1;
@@ -498,5 +499,27 @@ int employee_guardarTexto(LinkedList* pArrayEmployee, char* path)
     fclose(pFile);
     return retorno;
 }
+
+int employee_guardarBinario(LinkedList* pArrayEmployee,char* path)
+{
+    int retorno=-1;
+    FILE* pArchivo=fopen(path,"wb");
+    Employee* pEmpleado;
+    int i;
+    int lenArray=ll_len(pArrayEmployee);
+    if(pArchivo != NULL)
+    {
+        retorno=0;
+        for(i=0;i<lenArray;i++)
+        {
+            pEmpleado=ll_get(pArrayEmployee,i);
+            fwrite(pEmpleado,sizeof(Employee),1,pArchivo);
+        }
+    }
+    fclose(pArchivo);
+    return retorno;
+}
+
+
 
 
