@@ -191,7 +191,6 @@ static int isValidId(char* employeeId)
         }
         i++;
     }
-
     return retorno;
 }
 /**
@@ -367,7 +366,7 @@ int employee_modificar(LinkedList* arrayEmployee)
             }
         }else
         {
-            printf("El indice no existe\n");
+            printf("El Id no existe\n");
         }
     }
     return retorno;
@@ -396,7 +395,7 @@ int employee_borrar(LinkedList* arrayEmployee)
             }
         }else
         {
-            printf("El indice no existe\n");
+            printf("El Id no existe\n");
         }
     }
     return retorno;
