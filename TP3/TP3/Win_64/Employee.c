@@ -119,7 +119,6 @@ int employee_setId(Employee* this,char* id)
 int employee_getId(Employee* this,int* id)
 {
     int retorno=-1;
-    //validar!!
      if(this != NULL && id!= NULL)
      {
         *id=this->id;
