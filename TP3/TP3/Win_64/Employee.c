@@ -465,7 +465,6 @@ int employee_ordenarPorNombre(LinkedList* arrayEmployee)
     int flagSwap;
     if(arrayEmployee != NULL && limite >= 0)
     {
-        retorno=0;
         for(i=0;i<limite;i++)
         {
             auxArrayEmployee[i]=ll_get(arrayEmployee,i);
@@ -487,11 +486,17 @@ int employee_ordenarPorNombre(LinkedList* arrayEmployee)
                 }
             }while(flagSwap==1);
         }
+        if(employee_vaciarLinkedList(arrayEmployee)==0 && employee_recargarLinkedList(arrayEmployee,auxArrayEmployee,limite)==0)
+        {
+            retorno=0;
+        }
     }
     for(i=0;i<limite;i++)
     {
-        printf("Nombre:%s \n",auxArrayEmployee[i]->nombre);
+       printf("%d - %s - %d - %d\n",auxArrayEmployee[i]->id,auxArrayEmployee[i]->nombre,auxArrayEmployee[i]->horasTrabajadas,auxArrayEmployee[i]->sueldo);
     }
+
+
     return retorno;
 }
 /**
@@ -519,6 +524,40 @@ int employee_guardarTexto(LinkedList* pArrayEmployee, char* path)
         }
     }
     fclose(pFile);
+    return retorno;
+}
+
+int employee_vaciarLinkedList(LinkedList* pArrayEmployee)
+{
+    int retorno=-1;
+    int limite;
+    int i;
+    limite=ll_len(pArrayEmployee);
+    if(pArrayEmployee != NULL)
+    {
+        retorno=0;
+        for(i=0;i<limite;i++)
+        {
+            ll_remove(pArrayEmployee,i);
+        }
+    }
+
+    return retorno;
+}
+
+int employee_recargarLinkedList(LinkedList* pArrayEmployee,Employee* auxArrayEmployee[],int limite)
+{
+    int retorno=-1;
+    int i;
+    printf("El len es de: %d\n",limite);
+    if(auxArrayEmployee != NULL)
+    {
+        retorno=0;
+        for(i=0;i<limite;i++)
+        {
+            ll_add(pArrayEmployee,auxArrayEmployee[i]);
+        }
+    }
     return retorno;
 }
 
