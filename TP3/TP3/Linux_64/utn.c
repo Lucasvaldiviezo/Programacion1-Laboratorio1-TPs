@@ -81,7 +81,7 @@ int utn_getNumeroDecimal(float *pNum, int reint, char* msg, char* msgError,float
             }else
             {
                 printf("%s",msgError);
-                fflush(stdin);
+                __fpurge(stdin);
             }
 
 

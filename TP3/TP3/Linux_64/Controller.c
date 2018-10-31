@@ -14,12 +14,19 @@
  */
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
+    int retorno=-1;
     FILE* pFile;
     pFile=fopen(path,"r");
-    parser_EmployeeFromText(pFile,pArrayListEmployee);
+    if(pFile != NULL && parser_EmployeeFromText(pFile,pArrayListEmployee)==0)
+    {
+       printf("||DATOS CARGADOS||\n");
+       retorno=0;
+    }else
+    {
+        printf("No se pudieron cargar los datos\n");
+    }
     fclose(pFile);
-     printf("\n||DATOS CARGADOS||\n");
-    return 1;
+    return retorno;
 }
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
@@ -43,7 +50,13 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_alta(pArrayListEmployee)==0)
+    {
+        printf("\n||Se ha agregado el empleado||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Modificar datos de empleado
@@ -55,7 +68,13 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_modificar(pArrayListEmployee)==0)
+    {
+        printf("\n||Se ha modificado el empleado||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Baja de empleado
@@ -67,7 +86,13 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_borrar(pArrayListEmployee)==0)
+    {
+        printf("\n||Se ha borrado el empleado||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Listar empleados
@@ -80,7 +105,6 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     employee_mostrar(pArrayListEmployee);
-
     return 1;
 }
 
@@ -93,7 +117,13 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_ordenarPorNombre(pArrayListEmployee)==0)
+    {
+        printf("\n||Lista Ordenada por Nombre ascendente||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
@@ -105,7 +135,13 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    if(employee_guardarTexto(pArrayListEmployee,path)==0)
+    {
+        printf("||Los datos se guardaron en el archivo de texto||\n");
+        retorno=0;
+    }
+    return retorno;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
