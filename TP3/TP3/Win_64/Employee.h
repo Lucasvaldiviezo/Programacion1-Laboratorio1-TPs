@@ -29,9 +29,7 @@ int employee_alta(LinkedList* arrayEmployee);
 int employee_modificar(LinkedList* arrayEmployee);
 int employee_borrar(LinkedList* arrayEmployee);
 int employee_buscarPorId(LinkedList* pArrayEmployee, int employeeId);
-int employee_ordenarPorNombre(LinkedList* arrayEmployee);
 int employee_guardarTexto(LinkedList* pArrayEmployee, char* path);
-int employee_vaciarLinkedList(LinkedList* pArrayEmployee);
-int employee_recargarLinkedList(LinkedList* pArrayEmployee,Employee* auxArrayEmployee[],int limite);
+int employee_criterioNombre(void* thisA,void* thisB);
 
 #endif // employee_H_INCLUDED

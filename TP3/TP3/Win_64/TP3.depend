@@ -100,3 +100,50 @@
 	"utn.h"
 	<ctype.h>
 
+1541024532 source:c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1541024318 c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\linkedlist.h
+
+1541024548 c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\employee.h
+
+1541024318 c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\parser.h
+
+1541024318 source:c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+
+1541024318 c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\utn.h
+
+1541024318 source:c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1541024318 c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\controller.h
+
+1541024318 source:c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1541024318 source:c:\users\alumno\desktop\programacion1-laboratorio1-tps\tp3\tp3\win_64\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+

@@ -115,11 +115,6 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=-1;
-    if(employee_ordenarPorNombre(pArrayListEmployee)==0)
-    {
-        printf("\n||Lista Ordenada por Nombre ascendente||\n");
-        retorno=0;
-    }
     return retorno;
 }
 
