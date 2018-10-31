@@ -28,5 +28,7 @@ void employee_mostrar(LinkedList* arrayLinkedList);
 int employee_alta(LinkedList* arrayEmployee);
 int employee_modificar(LinkedList* arrayEmployee);
 int employee_borrar(LinkedList* arrayEmployee);
+int employee_ordenarPorNombre(LinkedList* arrayEmployee);
+int employee_guardarTexto(LinkedList* pArrayEmployee, char* path);
 
 #endif // employee_H_INCLUDED

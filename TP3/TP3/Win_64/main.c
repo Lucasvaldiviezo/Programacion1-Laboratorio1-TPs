@@ -55,6 +55,13 @@ int main()
                 break;
             case 6:
                 controller_ListEmployee(listaEmpleados);
+                break;
+            case 7:
+                controller_sortEmployee(listaEmpleados);
+                break;
+            case 8:
+                controller_saveAsText("data.csv",listaEmpleados);
+                break;
             case 10:
                 ll_deleteLinkedList(listaEmpleados);
         }

@@ -245,7 +245,7 @@ int employee_alta(LinkedList* arrayEmployee)
     char bufferSueldo[1024];
     Employee* auxiliarPunteroEmployee;
 
-    if( utn_getNombre(bufferNombre,"\nIngrese el nombre del empleado: ","Ese no es un nombre")==0 &&
+    if( utn_getNombre(bufferNombre,"Ingrese el nombre del empleado: ","Ese no es un nombre")==0 &&
         utn_getEnteroSinLimites(&auxHorasTrabajadas,10,"Ingrese las horas trabajadas del empleado: ","Ese no es un numero")==0 &&
         utn_getEnteroSinLimites(&auxSueldo,10,"Ingrese el sueldo del empleado: ","Ese no es un numero")==0)
     {
@@ -256,7 +256,6 @@ int employee_alta(LinkedList* arrayEmployee)
         {
             ll_add(arrayEmployee,auxiliarPunteroEmployee);
         }
-
         retorno=0;
     }
 
@@ -285,6 +284,7 @@ int employee_modificar(LinkedList* arrayEmployee)
                 auxEmployee->horasTrabajadas=auxHorasTrabajadas;
                 auxEmployee->sueldo=auxSueldo;
                 strcpy(auxEmployee->nombre,bufferNombre);
+                retorno=0;
             }
         }else
         {
@@ -308,8 +308,8 @@ int employee_borrar(LinkedList* arrayEmployee)
             auxEmployee=ll_get(arrayEmployee,indice);
             if(employee_delete(auxEmployee)==0)
             {
+                retorno=0;
                 ll_remove(arrayEmployee,indice);
-                printf("\n||Se ha borrado el empleado||\n");
             }
         }else
         {
@@ -398,3 +398,66 @@ void employee_mostrar(LinkedList* arrayLinkedList)
 
     }
 }
+
+int employee_ordenarPorNombre(LinkedList* arrayEmployee)
+{
+    int i;
+    int limite=ll_len(arrayEmployee);
+    Employee* auxArrayEmployee[limite];
+    Employee* auxEmployee;
+    int retorno=-1;
+    int flagSwap;
+    if(arrayEmployee != NULL && limite >= 0)
+    {
+        retorno=0;
+        for(i=0;i<limite;i++)
+        {
+            auxArrayEmployee[i]=ll_get(arrayEmployee,i);
+        }
+        if(auxArrayEmployee!=NULL)
+        {
+           do
+            {
+                flagSwap=0;
+                for(i=0;i<limite-1;i++)
+                {
+                    if(strcmp(auxArrayEmployee[i]->nombre,auxArrayEmployee[i+1]->nombre)>0)
+                    {
+                        flagSwap=1;
+                        auxEmployee=auxArrayEmployee[i];
+                        auxArrayEmployee[i]=auxArrayEmployee[i+1];
+                        auxArrayEmployee[i+1]=auxEmployee;
+                    }
+                }
+            }while(flagSwap==1);
+        }
+    }
+    for(i=0;i<limite;i++)
+    {
+        printf("Nombre:%s \n",auxArrayEmployee[i]->nombre);
+    }
+    return retorno;
+}
+
+int employee_guardarTexto(LinkedList* pArrayEmployee, char* path)
+{
+    int retorno=-1;
+    int i;
+    int limite;
+    FILE* pFile;
+    pFile=fopen(path,"w");
+    limite=ll_len(pArrayEmployee);
+    Employee* auxEmployee;
+    if(pFile !=NULL)
+    {
+        retorno=0;
+        for(i=0;i<limite;i++)
+        {
+            auxEmployee=ll_get(pArrayEmployee,i);
+            fprintf(pFile,"%d,%s,%d,%d\n",auxEmployee->id,auxEmployee->nombre,auxEmployee->horasTrabajadas,auxEmployee->sueldo);
+        }
+    }
+    fclose(pFile);
+    return retorno;
+}
+
