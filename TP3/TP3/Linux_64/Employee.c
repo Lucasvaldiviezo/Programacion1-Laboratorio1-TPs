@@ -456,50 +456,22 @@ void employee_mostrar(LinkedList* arrayLinkedList)
     }
 }
 
-int employee_ordenarPorNombre(LinkedList* arrayEmployee)
+/*int employee_criterioNombre(void* thisA,void* thisB)
 {
-    int i;
-    int limite=ll_len(arrayEmployee);
-    Employee* auxArrayEmployee[limite];
-    Employee* auxEmployee;
-    int retorno=-1;
-    int flagSwap;
-    if(arrayEmployee != NULL && limite >= 0)
+    int retorno=0;
+    char nombreA[1024];
+    char nombreB[1024];
+    employee_getNombre(thisA,nombreA);
+    employee_getNombre(thisB,nombreB);
+    if(strcmp(nombreA,nombreB)>0)
     {
-        for(i=0;i<limite;i++)
-        {
-            auxArrayEmployee[i]=ll_get(arrayEmployee,i);
-        }
-        if(auxArrayEmployee!=NULL)
-        {
-           do
-            {
-                flagSwap=0;
-                for(i=0;i<limite-1;i++)
-                {
-                    if(strcmp(auxArrayEmployee[i]->nombre,auxArrayEmployee[i+1]->nombre)>0)
-                    {
-                        flagSwap=1;
-                        auxEmployee=auxArrayEmployee[i];
-                        auxArrayEmployee[i]=auxArrayEmployee[i+1];
-                        auxArrayEmployee[i+1]=auxEmployee;
-                    }
-                }
-            }while(flagSwap==1);
-        }
-        if(employee_vaciarLinkedList(arrayEmployee)==0 && employee_recargarLinkedList(arrayEmployee,auxArrayEmployee,limite)==0)
-        {
-            retorno=0;
-        }
-    }
-    for(i=0;i<limite;i++)
+        retorno=1;
+    }else if(strcmp(nombreA,nombreB)<0)
     {
-       printf("%d - %s - %d - %d\n",auxArrayEmployee[i]->id,auxArrayEmployee[i]->nombre,auxArrayEmployee[i]->horasTrabajadas,auxArrayEmployee[i]->sueldo);
+        retorno=-1;
     }
-
-
     return retorno;
-}
+}*/
 /**
     employee_guardarTexto: guarda los datos del LinkedList en la ruta del archivo recibido;
     @param arrayLinkedList: recibe el array a guardar.
@@ -528,37 +500,25 @@ int employee_guardarTexto(LinkedList* pArrayEmployee, char* path)
     return retorno;
 }
 
-int employee_vaciarLinkedList(LinkedList* pArrayEmployee)
+int employee_guardarBinario(LinkedList* pArrayEmployee,char* path)
 {
     int retorno=-1;
-    int limite;
+    FILE* pArchivo=fopen(path,"wb");
+    Employee* pEmpleado;
     int i;
-    limite=ll_len(pArrayEmployee);
-    if(pArrayEmployee != NULL)
+    int lenArray=ll_len(pArrayEmployee);
+    if(pArchivo != NULL)
     {
         retorno=0;
-        for(i=0;i<limite;i++)
+        for(i=0;i<lenArray;i++)
         {
-            ll_remove(pArrayEmployee,i);
+            pEmpleado=ll_get(pArrayEmployee,i);
+            fwrite(pEmpleado,sizeof(Employee),1,pArchivo);
         }
     }
-
+    fclose(pArchivo);
     return retorno;
 }
 
-int employee_recargarLinkedList(LinkedList* pArrayEmployee,Employee* auxArrayEmployee[],int limite)
-{
-    int retorno=-1;
-    int i;
-    printf("El len es de: %d\n",limite);
-    if(auxArrayEmployee != NULL)
-    {
-        retorno=0;
-        for(i=0;i<limite;i++)
-        {
-            ll_add(pArrayEmployee,auxArrayEmployee[i]);
-        }
-    }
-    return retorno;
-}
+
 
