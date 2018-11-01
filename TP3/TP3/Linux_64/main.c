@@ -69,7 +69,6 @@ int main()
                 controller_saveAsBinary("data.bin",listaEmpleados);
             case 10:
                 ll_deleteLinkedList(listaEmpleados);
-
         }
     }while(option != 10);
     return 0;
