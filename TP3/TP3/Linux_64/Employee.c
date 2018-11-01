@@ -455,7 +455,12 @@ void employee_mostrar(LinkedList* arrayLinkedList)
 
     }
 }
-
+/**
+    employee_criterioNombre: utiliza el strcmp para comparar 2 nombres y retorna el valor del strcmp
+    @param thisA: dato uno a comparar
+    @param thisB: dato dos a comparar
+    @return retorno: valor del strcmp
+*/
 int employee_criterioNombre(void* thisA,void* thisB)
 {
     int retorno=0;
@@ -473,7 +478,7 @@ int employee_criterioNombre(void* thisA,void* thisB)
     return retorno;
 }
 /**
-    employee_guardarTexto: guarda los datos del LinkedList en la ruta del archivo recibido;
+    employee_guardarTexto: guarda los datos del LinkedList en la ruta del archivo recibido en modo texto
     @param arrayLinkedList: recibe el array a guardar.
     @param path: nombre del archivo donde se guardaran los datos
     @return 0 OK, -1 error.
@@ -499,6 +504,12 @@ int employee_guardarTexto(LinkedList* pArrayEmployee, char* path)
     fclose(pFile);
     return retorno;
 }
+/**
+    employee_guardarBinario: guarda los datos del LinkedList en la ruta del archivo recibido en modo binario
+    @param arrayLinkedList: recibe el array a guardar.
+    @param path: nombre del archivo donde se guardaran los datos
+    @return 0 OK, -1 error.
+*/
 
 int employee_guardarBinario(LinkedList* pArrayEmployee,char* path)
 {
