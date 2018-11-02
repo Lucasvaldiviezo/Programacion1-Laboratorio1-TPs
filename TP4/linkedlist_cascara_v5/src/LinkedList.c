@@ -55,7 +55,7 @@ static Node* getNode(LinkedList* this, int nodeIndex)
     Node* pNode = NULL;
     int i;
     int size=ll_len(this);
-    if(this != NULL && nodeIndex >=0 && nodeIndex < size)
+    if(this != NULL && nodeIndex>=0 && nodeIndex < size)
     {
         pNode=this->pFirstNode;
         if(pNode!=NULL)
@@ -153,7 +153,11 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-
+    int size=ll_len(this);
+    if(this!=NULL && addNode(this,size,pElement)==0)
+    {
+        returnAux=0;
+    }
     return returnAux;
 }
 
@@ -168,7 +172,16 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-
+    Node* pNode;
+    int size=ll_len(this);
+    if(this != NULL && index>=0 && index<size)
+    {
+        pNode=getNode(this,index);
+        if(pNode!=NULL)
+        {
+            returnAux=pNode->pElement;
+        }
+    }
     return returnAux;
 }
 
