@@ -449,7 +449,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     int size2=ll_len(this2);
     void* pElement;
     void* pElement2;
-    int cantIguales;
+    int cantIguales=0;
     if(this != NULL && this2 != NULL)
     {
         for(i=0;i<size;i++)
@@ -461,7 +461,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
                 cantIguales++;
             }
         }
-        if(cantIguales==size && size==size2)
+        if(cantIguales==size  && size==size2)
         {
             returnAux=1;
         }else
