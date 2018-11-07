@@ -444,7 +444,31 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
-
+    int i;
+    int size=ll_len(this);
+    int size2=ll_len(this2);
+    void* pElement;
+    void* pElement2;
+    int cantIguales;
+    if(this != NULL && this2 != NULL)
+    {
+        for(i=0;i<size;i++)
+        {
+            pElement=ll_get(this,i);
+            pElement2=ll_get(this2,i);
+            if(pElement==pElement2)
+            {
+                cantIguales++;
+            }
+        }
+        if(cantIguales==size && size==size2)
+        {
+            returnAux=1;
+        }else
+        {
+            returnAux=0;
+        }
+    }
     return returnAux;
 }
 
@@ -461,7 +485,31 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
+    cloneArray=ll_newLinkedList();
+    void* pElement;
+    int i;
+    int size=ll_len(this);
+    if(this != NULL && from >=0 && from<size && to > from && to <=size)
+    {
+        for(i=from;i<to;i++)
+        {
+            pElement=ll_get(this,i);
+            if(ll_add(cloneArray,pElement)==0)
+            {
+                continue;
+            }else
+            {
+                free(cloneArray);
+                cloneArray=NULL;
+                break;
+            }
 
+        }
+    }else
+    {
+        free(cloneArray);
+        cloneArray=NULL;
+    }
     return cloneArray;
 }
 
@@ -476,7 +524,31 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
+    cloneArray=ll_newLinkedList();
+    void* pElement;
+    int i;
+    int size=ll_len(this);
+    if(this != NULL)
+    {
+        for(i=0;i<size;i++)
+        {
+            pElement=ll_get(this,i);
+            if(ll_add(cloneArray,pElement)==0)
+            {
+                continue;
+            }else
+            {
+                free(cloneArray);
+                cloneArray=NULL;
+                break;
+            }
 
+        }
+    }else
+    {
+        free(cloneArray);
+        cloneArray=NULL;
+    }
     return cloneArray;
 }
 
